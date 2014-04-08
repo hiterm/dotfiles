@@ -1,0 +1,9 @@
+[core]
+	excludesfile = /Users/ht/.gitignore
+[user]
+	name = htjotk
+	email = htjotk@server.fake
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple

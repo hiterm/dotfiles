@@ -1,0 +1,10 @@
+import settings;
+psviewer="gv";
+gs="gs";
+outformat="pdf";
+render=0;
+//tex="latex";
+//texcommand="platex-utf8";
+//texpath="/Users/ht/.asy/";
+tex="latex";
+texcommand="platex";
