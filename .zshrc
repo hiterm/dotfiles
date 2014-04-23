@@ -37,10 +37,10 @@ export GTK_IM_MODULE=uim
 export GTK_PATH=/usr/local/lib/gtk-2.0
 
 # シェルのデフォルトエディタ
-export EDITOR=/usr/local/bin/emacs
+export EDITOR=vim
 
 # Homebrewのエディタを設定
-export HOMEBREW_EDITOR=emacs
+# export HOMEBREW_EDITOR=emacs
 
 # 補完を増やす
 fpath=(/Users/ht/.zsh/completion/zsh-completions/src $fpath)
