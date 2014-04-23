@@ -42,15 +42,15 @@ export EDITOR=/usr/local/bin/emacs
 # Homebrewのエディタを設定
 export HOMEBREW_EDITOR=emacs
 
-# gitの補完機能を有効にする
-#fpath=(~/.zsh/completion $fpath)
-
 # 補完を増やす
 fpath=(/Users/ht/.zsh/completion/zsh-completions/src $fpath)
 
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit
+
+# Emacs Caskの補完を有効に
+source /usr/local/share/zsh/site-functions/cask_completion.zsh
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
