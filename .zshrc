@@ -68,7 +68,7 @@ bindkey -e
 # 1行表示
 # PROMPT="%~%# "
 PROMPT='%F{blue}%n@%m%%%f '
-RPROMPT='%F{cyan}[%d]%f'
+RPROMPT='%F{cyan}[%~]%f'
 
 # 履歴
 # 履歴ファイルの保存先
