@@ -43,11 +43,11 @@ export EDITOR=vim
 # export HOMEBREW_EDITOR=emacs
 
 # 補完を増やす
-fpath=(/Users/ht/.zsh/completion/zsh-completions/src $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # 補完機能を有効にする
 autoload -Uz compinit
-compinit
+compinit -u
 
 # Emacs Caskの補完を有効に
 source /usr/local/share/zsh/site-functions/cask_completion.zsh
