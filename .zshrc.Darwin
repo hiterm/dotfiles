@@ -1,0 +1,41 @@
+# Mac用の設定
+
+# brew install zsh --disable-etcdir としたため
+# /etc/zshenv の内容をコピーした
+# system-wide environment settings for zsh(1)
+if [ -x /usr/libexec/path_helper ]; then
+        eval `/usr/libexec/path_helper -s`
+fi
+
+PATH="/usr/local/bin:${PATH}:/usr/local/sbin:/Applications/Ghostscript.app"
+PATH="${PATH}:/Users/ht/.bin"
+export PATH
+
+alias cemacs="open -a /Applications/Emacs.app"
+alias ls="ls -G"
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+alias rm="rm -i"
+alias mikutter="ruby ~/.bin/mikutter/mikutter.rb"
+alias ustroku="wine ~/Others/Wine/USTroku108/USTroku.exe"
+
+alias updatedb='/usr/libexec/locate.updatedb'
+
+# Javaのエンコーディング
+#export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
+alias java="java -Dfile.encoding=UTF-8"
+alias javac="javac -encoding UTF-8"
+# rbenvの設定
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# x11でuim
+export LANG=ja_JP.UTF-8
+export XMODIFIERS=@im=uim
+export GTK_IM_MODULE=uim
+
+# GTKのテーマを変える
+export GTK_PATH=/usr/local/lib/gtk-2.0
+
+# Emacs Caskの補完を有効に
+source /usr/local/share/zsh/site-functions/cask_completion.zsh

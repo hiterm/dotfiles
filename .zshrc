@@ -1,46 +1,8 @@
-# brew install zsh --disable-etcdir としたため
-# /etc/zshenv の内容をコピーした
-# system-wide environment settings for zsh(1)
-if [ -x /usr/libexec/path_helper ]; then
-        eval `/usr/libexec/path_helper -s`
-fi
-
-
-PATH="/usr/local/bin:${PATH}:/usr/local/sbin:/Applications/Ghostscript.app"
-PATH="${PATH}:/Users/ht/.bin"
-export PATH
-
-alias cemacs="open -a /Applications/Emacs.app"
-alias ls="ls -G"
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
-alias rm="rm -i"
-alias mikutter="ruby ~/.bin/mikutter/mikutter.rb"
-alias ustroku="wine ~/Others/Wine/USTroku108/USTroku.exe"
-
-alias updatedb='/usr/libexec/locate.updatedb'
-
-# Javaのエンコーディング
-#export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
-alias java="java -Dfile.encoding=UTF-8"
-alias javac="javac -encoding UTF-8"
-# rbenvの設定
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# x11でuim
-export LANG=ja_JP.UTF-8
-export XMODIFIERS=@im=uim
-export GTK_IM_MODULE=uim
-
-# GTKのテーマを変える
-export GTK_PATH=/usr/local/lib/gtk-2.0
+# 分割した設定ファイルを読み込む
+[ -f $HOME/.zshrc.`uname` ] && . $HOME/.zshrc.`uname`
 
 # シェルのデフォルトエディタ
 export EDITOR=vim
-
-# Homebrewのエディタを設定
-# export HOMEBREW_EDITOR=emacs
 
 # 補完を増やす
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -48,9 +10,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit -u
-
-# Emacs Caskの補完を有効に
-source /usr/local/share/zsh/site-functions/cask_completion.zsh
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -92,6 +51,7 @@ function _update_vcs_info_msg() {
 add-zsh-hook precmd _update_vcs_info_msg
 
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
+# また、長いときはパスを省略
 RPROMPT="%1(v|%F{green}%1v%f|)%F{cyan}[%35<..<%~%<<]%f"
 
 # 履歴
