@@ -1,3 +1,7 @@
+# 補完機能を有効にする
+autoload -Uz compinit
+compinit -u
+
 # 分割した設定ファイルを読み込む
 [ -f $HOME/.zshrc.`uname` ] && . $HOME/.zshrc.`uname`
 
@@ -6,10 +10,6 @@ export EDITOR=vim
 
 # 補完を増やす
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-# 補完機能を有効にする
-autoload -Uz compinit
-compinit -u
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
