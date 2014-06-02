@@ -1,0 +1,22 @@
+# gemのPATH
+export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
+
+# Emacs Cask
+export PATH="$HOME/.cask/bin:$PATH"
+
+# Emacs Caskの補完
+. $HOME/.cask/etc/cask_completion.zsh
+
+alias ls="ls --color"
+
+alias rm="rm -i"
+alias firefox="firefox-bin"
+alias mikutter="ruby ~/bin/mikutter/mikutter.rb"
+
+# sudoでaliasを有効にする
+alias sudo="sudo "
+
+# 補完でsudo時にsbinをパスに入れる
+zstyle ':completion:*:sudo:*' command-path /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin
+
+
