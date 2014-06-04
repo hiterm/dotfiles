@@ -4,10 +4,14 @@ export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
 # Emacs Cask
 export PATH="$HOME/.cask/bin:$PATH"
 
+# awmtt
+export PATH="$HOME/bin/awmtt:$PATH"
+
 # Emacs Caskの補完
 . $HOME/.cask/etc/cask_completion.zsh
 
 alias ls="ls --color"
+alias diff="colordiff -u"
 
 alias rm="rm -i"
 alias firefox="firefox-bin"
