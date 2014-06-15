@@ -10,6 +10,9 @@ export PATH="$HOME/bin/awmtt:$PATH"
 # Emacs Caskの補完
 . $HOME/.cask/etc/cask_completion.zsh
 
+# ロケールをターミナルでは英語に
+export LC_MESSAGES=en_US.utf8
+
 alias ls="ls --color"
 alias diff="colordiff -u"
 
