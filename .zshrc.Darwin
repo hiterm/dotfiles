@@ -11,6 +11,9 @@ PATH="/usr/local/bin:${PATH}:/usr/local/sbin:/Applications/Ghostscript.app"
 PATH="${PATH}:/Users/ht/.bin"
 export PATH
 
+# pyenv
+eval "$(pyenv init -)"
+
 alias cemacs="open -a /Applications/Emacs.app"
 alias ls="ls -G"
 export LSCOLORS=gxfxcxdxbxegedabagacad
