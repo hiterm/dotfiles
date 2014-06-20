@@ -11,6 +11,12 @@ PATH="/usr/local/bin:${PATH}:/usr/local/sbin:/Applications/Ghostscript.app"
 PATH="${PATH}:/Users/ht/.bin"
 export PATH
 
+# rbenvの設定
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+# tmux用の設定
+export PATH=$HOME/.rbenv/shims:$PATH
+
 # pyenv
 eval "$(pyenv init -)"
 
@@ -28,11 +34,6 @@ alias updatedb='/usr/libexec/locate.updatedb'
 #export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8
 alias java="java -Dfile.encoding=UTF-8"
 alias javac="javac -encoding UTF-8"
-# rbenvの設定
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-# tmux用の設定
-export PATH=$HOME/.rbenv/shims:$PATH
 
 # x11でuim
 export LANG=ja_JP.UTF-8
