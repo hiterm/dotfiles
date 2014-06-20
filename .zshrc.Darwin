@@ -45,3 +45,7 @@ export GTK_PATH=/usr/local/lib/gtk-2.0
 
 # Emacs Caskの補完を有効に
 source /usr/local/share/zsh/site-functions/cask_completion.zsh
+
+# キーバインド
+bindkey "ƒ" forward-word
+bindkey "∫" backward-word
