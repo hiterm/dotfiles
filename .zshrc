@@ -1,3 +1,6 @@
+# 補完を増やす
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit -u
@@ -7,9 +10,6 @@ compinit -u
 
 # シェルのデフォルトエディタ
 export EDITOR=vim
-
-# 補完を増やす
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
