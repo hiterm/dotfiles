@@ -6,13 +6,14 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#begin(expand('~/vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let Neobundle manage Neobundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
+NeoBundle 'tomasr/molokai'
 
 call neobundle#end()
 
@@ -24,9 +25,10 @@ filetype plugin indent on
 NeoBundleCheck
 
 set number
-syntax on
 
-set t_Co=256
+" molokai colorscheme
+syntax enable
+colorscheme molokai
 
 " 大文字小文字を区別しない
 set ignorecase
