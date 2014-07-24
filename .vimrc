@@ -14,6 +14,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'tomasr/molokai'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'Yggdroot/indentLine'
 
 call neobundle#end()
 
@@ -24,6 +26,10 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+" ここまでNeoBundleの設定
+" ここから普通の設定
+
+" 行番号を表示
 set number
 
 " molokai colorscheme
@@ -32,3 +38,7 @@ colorscheme molokai
 
 " 大文字小文字を区別しない
 set ignorecase
+
+" indentLine
+let g:indentLine_char = '¦'
+:set list lcs=tab:\|\ 
