@@ -1,3 +1,11 @@
+# ~/binをPATHに追加
+export PATH="$HOME/bin:$PATH"
+
+# TeX Live
+export PATH="/usr/local/texlive/2014/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
+
 # gemのPATH
 export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
 
@@ -25,5 +33,3 @@ alias sudo="sudo "
 
 # 補完でsudo時にsbinをパスに入れる
 zstyle ':completion:*:sudo:*' command-path /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin
-
-
