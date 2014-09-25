@@ -111,7 +111,7 @@ ls_abbrev() {
   # -F : Append indicator (one of */=>@|) to entries.
   local cmd_ls='ls'
   local -a opt_ls
-  opt_ls=('-aCF' '--color=always')
+  opt_ls=('-CF' '--color=always')
   case "${OSTYPE}" in
     freebsd*|darwin*)
       if type gls > /dev/null 2>&1; then
