@@ -11,6 +11,9 @@ compinit -u
 # シェルのデフォルトエディタ
 export EDITOR=vim
 
+# ocamlでrlwrapを有効に
+alias ocaml="rlwrap ocaml"
+
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
