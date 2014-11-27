@@ -17,6 +17,9 @@ eval "$(rbenv init -)"
 # tmux用の設定
 export PATH=$HOME/.rbenv/shims:$PATH
 
+# isabelle
+export PATH="/Applications/Isabelle2014.app/Isabelle/bin:$PATH"
+
 # pyenv
 eval "$(pyenv init -)"
 
