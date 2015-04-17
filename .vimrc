@@ -16,6 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'altercation/vim-colors-solarized'
 
 call neobundle#end()
 
@@ -43,5 +44,15 @@ set ignorecase
 let g:indentLine_char = '¦'
 :set list lcs=tab:\|\ 
 
+" インデントの深さ
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 " ソフトタブ
 set expandtab
+
+" MetaキーをOptionキーに
+set macmeta
+
+" クリップボードを共有
+set clipboard=unnamed
