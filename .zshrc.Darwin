@@ -30,6 +30,7 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 alias rm="rm -i"
 alias mikutter="ruby ~/.bin/mikutter/mikutter.rb"
 alias ustroku="wine ~/Others/Wine/USTroku108/USTroku.exe"
+alias mpackaged="~/.bin/mikutter-packaged/mpackaged"
 
 alias updatedb='/usr/libexec/locate.updatedb'
 
