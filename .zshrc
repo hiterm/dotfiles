@@ -146,3 +146,6 @@ DIRSTACKSIZE=100
 setopt AUTO_PUSHD
 setopt pushd_ignore_dups
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# Ctrl-Dでログアウトしない
+setopt IGNOREEOF
