@@ -10,7 +10,7 @@ sub pythontex {
     return system("pythontex \"$_[0]\"") ;
 }
 
-$latex = 'internal mylatex %R %Z platex %O -synctex=1 %S';
+$latex = 'internal mylatex %R %Z uplatex %O -synctex=1 %S';
 sub mylatex {
    my $root = shift;
    my $dir_string = shift;
