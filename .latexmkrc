@@ -39,6 +39,7 @@ sub mylatex {
 
 $pdflatex = 'lualatex %O -synctex=1 %S';
 $bibtex = 'pbibtex %O %B';
+$biber = 'biber --bblencoding=utf8 -u -U --output_safechars';
 $makeindex = 'mendex %O -o %D %S';
 $dvipdf = 'dvipdfmx %O -o %D %S';
 $dvips = 'dvips %O -z -f %S | convbkmk -g > %D';
