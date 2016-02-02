@@ -37,7 +37,7 @@ sub mylatex {
 }
 
 
-$pdflatex = 'luajitlatex %O -synctex=1 %S';
+$pdflatex = 'luajittex --fmt=luajitlatex %O -synctex=1 %S';
 $bibtex = 'pbibtex %O %B';
 $biber = 'biber --bblencoding=utf8 -u -U --output_safechars';
 $makeindex = 'mendex %O -o %D %S';
