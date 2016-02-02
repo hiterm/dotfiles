@@ -13,6 +13,7 @@ export EDITOR=vim
 
 # ocamlでrlwrapを有効に
 alias ocaml="rlwrap ocaml"
+alias luajitlatex='luajittex --fmt=luajitlatex.fmt'
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
