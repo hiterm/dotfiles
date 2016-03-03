@@ -53,3 +53,7 @@ export GTK_PATH=/usr/local/lib/gtk-2.0
 
 # 補完で濁点を正しく表示
 setopt combiningchars
+
+# macvimのalias
+alias mvim-t='mvim --remote-tab'
+alias mvimt='mvim --remote-tab'
