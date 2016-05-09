@@ -150,3 +150,15 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 # Ctrl-Dでログアウトしない
 setopt IGNOREEOF
+
+# lilypond
+function lilypond-m () {
+    lilypond "$1" && mid2m4a "${1%.*}.midi"
+}
+function lilypond-p () {
+    lilypond "$1" && open "${1%.*}.pdf"
+}
+function lilypond-pm () {
+    lilypond "$1" && open "${1%.*}.pdf" && mid2m4a "${1%.*}.midi"
+}
+alias lilypond-mp='lilypond-pm'
