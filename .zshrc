@@ -71,6 +71,7 @@ setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
 # 同時に起動したzshの間でヒストリを共有する
 setopt share_history
+
 # スペースから始まるコマンド行はヒストリに残さない
 setopt hist_ignore_space
 # ヒストリに保存するときに余分なスペースを削除する
