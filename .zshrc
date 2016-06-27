@@ -97,6 +97,8 @@ zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAU
 # マッチ種別を別々に表示
 zstyle ':completion:*' group-name ''
 
+# ディレクトリの移動履歴を保存
+setopt auto_pushd
 
 # cdするたびにls。多いときは省略して表示
 chpwd() {
