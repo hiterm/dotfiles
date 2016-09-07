@@ -11,3 +11,5 @@
 	st = status
 	ca = commit -a
 	di = diff
+	co = commit
+	cm = commit
