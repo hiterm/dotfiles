@@ -1,5 +1,5 @@
 PATH="/usr/local/bin:$PATH:/usr/local/sbin:/Applications/Ghostscript.app"
-PATH="${PATH}:/Users/ht/.bin"
+PATH="${PATH}:~/.bin"
 export PATH
 
 alias cemacs="open -a /Applications/Emacs.app"
