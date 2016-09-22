@@ -1,5 +1,4 @@
 .DS_Store
-.bin/pdf-join
 
 # latex
 *.aux
