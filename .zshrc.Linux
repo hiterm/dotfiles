@@ -9,9 +9,6 @@ export INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
 # gemのPATH
 export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
 
-# Emacs Cask
-export PATH="$HOME/.cask/bin:$PATH"
-
 # awmtt
 export PATH="$HOME/bin/awmtt:$PATH"
 
