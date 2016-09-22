@@ -157,3 +157,6 @@ function lilypond-pm () {
     lilypond "$1" && open "${1%.*}.pdf" && mid2m4a "${1%.*}.midi"
 }
 alias lilypond-mp='lilypond-pm'
+
+# beepを消す
+setopt nobeep
