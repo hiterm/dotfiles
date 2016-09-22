@@ -1,16 +1,16 @@
 # ~/binをPATHに追加
-export PATH="$HOME/bin:$PATH"
+path=($HOME/bin(N-/) $path)
 
 # TeX Live
-export PATH="/usr/local/texlive/2014/bin/x86_64-linux:$PATH"
-export MANPATH="/usr/local/texlive/2014/texmf-dist/doc/man:$MANPATH"
+path=(/usr/local/texlive/2014/bin/x86_64-linux(N-/) $path)
+manpath=(/usr/local/texlive/2014/texmf-dist/doc/man(N-/) $manpath)
 export INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
 
 # gemのPATH
 export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
 
 # awmtt
-export PATH="$HOME/bin/awmtt:$PATH"
+path=($HOME/bin/awmtt(N-/) $path)
 
 # ロケールをターミナルでは英語に
 export LC_MESSAGES=en_US.utf8
