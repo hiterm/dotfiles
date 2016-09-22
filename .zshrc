@@ -160,3 +160,6 @@ alias lilypond-mp='lilypond-pm'
 
 # beepを消す
 setopt nobeep
+
+# pathの重複をなくす
+typeset -U path cdpath fpath manpath
