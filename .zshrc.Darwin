@@ -7,18 +7,21 @@ if [ -x /usr/libexec/path_helper ]; then
         eval `/usr/libexec/path_helper -s`
 fi
 
-PATH="/usr/local/bin:${PATH}:/usr/local/sbin:/Applications/Ghostscript.app"
-PATH="${PATH}:/Users/ht/.bin"
-export PATH
+path=(
+    /usr/local/bin(N-/)
+    /usr/local/sbin:/Applications/Ghostscript.app(N-/)
+    /Users/ht/.bin(N-/)
+    ${path}
+)
 
 # rbenvの設定
-export PATH="$HOME/.rbenv/bin:$PATH"
+path=($HOME/.rbenv/bin(N-/) $path)
 eval "$(rbenv init -)"
 # tmux用の設定
-export PATH=$HOME/.rbenv/shims:$PATH
+path=($HOME/.rbenv/shims(N-/) $path)
 
 # isabelle
-export PATH="/Applications/Isabelle2014.app/Isabelle/bin:$PATH"
+path=(/Applications/Isabelle2014.app/Isabelle/bin(N-/) $path)
 
 # pyenv
 eval "$(pyenv init -)"
