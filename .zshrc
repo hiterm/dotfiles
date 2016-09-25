@@ -5,9 +5,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit -u
 
-# 分割した設定ファイルを読み込む
-[ -f $HOME/.zshrc.`uname` ] && . $HOME/.zshrc.`uname`
-
 # シェルのデフォルトエディタ
 export EDITOR=vim
 
@@ -163,6 +160,9 @@ setopt nobeep
 
 # pathの重複をなくす
 typeset -U path cdpath fpath manpath
+
+# OS毎の設定ファイルを読み込む
+[ -f $HOME/.zshrc.`uname` ] && . $HOME/.zshrc.`uname`
 
 # fzfの設定
 # fzfコマンドが存在し、設定ファイルも存在するとき読み込む
