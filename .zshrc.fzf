@@ -1,0 +1,7 @@
+# repeat history
+function fzf-history() {
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+    zle reset-prompt
+}
+zle -N fzf-history
+bindkey '^R' fzf-history
