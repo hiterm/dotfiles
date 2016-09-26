@@ -1,3 +1,10 @@
+# change directory
+fd() {
+    local dir
+    dir=$(find -L ${1:-.} -type d -maxdepth 3 -print 2> /dev/null | fzf +m) &&
+        cd "$dir"
+}
+
 # repeat history
 function fzf-history() {
     print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
