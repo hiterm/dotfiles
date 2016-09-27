@@ -148,12 +148,12 @@ if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
 fi
 
 # zplug
-export ZPLUG_HOME=$HOME/.cache/zplug
-source $ZPLUG_HOME/init.zsh
+export ZPLUG_HOME=$HOME/.zsh/zplug
+source /usr/local/opt/zplug/init.zsh
 
 zplug "zsh-users/zsh-completions", lazy:true
 
-PURE_HOME=$HOME/.cache/zplug/repos/sindresorhus/pure
+PURE_HOME=$ZPLUG_HOME/repos/sindresorhus/pure
 zplug "sindresorhus/pure", as:plugin, lazy:true, \
 hook-build:"
 cd PURE_HOME
