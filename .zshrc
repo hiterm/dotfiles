@@ -32,45 +32,6 @@ bindkey -M vicmd "q" push-line
 # zshの入力モード切り替えの時間を短く
 KEYTIMEOUT=1
 
-# # プロンプト
-# PROMPT_MAIN='%F{blue}%n@%m%%%f '
-# # zshの入力モード情報を表示
-# terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
-# function zle-line-init zle-keymap-select {
-#     PROMPT_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-#     PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}$PROMPT_MAIN"
-#     zle reset-prompt
-# }
-# preexec () { print -rn -- $terminfo[el]; }
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-# # 右プロンプト
-# # 現在のパス
-# # 長いときはパスを省略
-# RPROMPT_1='%F{cyan}[%35<..<%~%<<]%f'
-# # Gitの情報を右プロンプトに表示
-# autoload -Uz vcs_info
-# autoload -Uz add-zsh-hook
-# # 表示フォーマットの指定
-# # %b ブランチ情報
-# # %a アクション名(mergeなど)
-# zstyle ':vcs_info:*' formats '[%b]'
-# zstyle ':vcs_info:*' actionformats '[%b|%a]'
-# # check-for-changes
-# zstyle ':vcs_info:git:*' check-for-changes true
-# zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
-# zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
-# zstyle ':vcs_info:git:*' formats '[%b]%c%u'
-# zstyle ':vcs_info:git:*' actionformats '[%b|%a]%c%u'
-# function _update_vcs_info_msg() {
-#     psvar=()
-#     LANG=en_US.UTF-8 vcs_info
-#     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-# }
-# add-zsh-hook precmd _update_vcs_info_msg
-# # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
-# RPROMPT="%1(v|%F{green}%1v%f|)$RPROMPT_1"
-
 # 履歴
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
