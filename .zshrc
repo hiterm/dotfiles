@@ -21,8 +21,12 @@ setopt print_eight_bit
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
 
-# emacs 風キーバインドにする
+# emacsとviを組み合わせたキーバインドにする
 bindkey -e
+bindkey "^[" vi-cmd-mode
+
+# zshの入力モード切り替えの時間を短く
+KEYTIMEOUT=1
 
 # プロンプト
 PROMPT='%F{blue}%n@%m%%%f '
