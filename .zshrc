@@ -41,6 +41,9 @@ preexec () { print -rn -- $terminfo[el]; }
 zle -N zle-line-init
 zle -N zle-keymap-select
 # 右プロンプト
+# 現在のパス
+# 長いときはパスを省略
+RPROMPT_1='%F{cyan}[%35<..<%~%<<]%f'
 # Gitの情報を右プロンプトに表示
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
@@ -62,8 +65,7 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
-# また、長いときはパスを省略
-RPROMPT="%1(v|%F{green}%1v%f|)%F{cyan}[%35<..<%~%<<]%f"
+RPROMPT="%1(v|%F{green}%1v%f|)$RPROMPT_1"
 
 # 履歴
 # 履歴ファイルの保存先
