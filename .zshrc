@@ -26,12 +26,9 @@ bindkey -e
 
 # プロンプト
 PROMPT='%F{blue}%n@%m%%%f '
-# RPROMPT='%F{cyan}[%~]%f'
-
 # Gitの情報を右プロンプトに表示
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
-
 # 表示フォーマットの指定
 # %b ブランチ情報
 # %a アクション名(mergeなど)
@@ -43,14 +40,12 @@ zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
 zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
 zstyle ':vcs_info:git:*' formats '[%b]%c%u'
 zstyle ':vcs_info:git:*' actionformats '[%b|%a]%c%u'
-
 function _update_vcs_info_msg() {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 add-zsh-hook precmd _update_vcs_info_msg
-
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 # また、長いときはパスを省略
 RPROMPT="%1(v|%F{green}%1v%f|)%F{cyan}[%35<..<%~%<<]%f"
