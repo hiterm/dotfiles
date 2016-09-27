@@ -24,6 +24,15 @@ setopt interactive_comments
 # emacsとviを組み合わせたキーバインドにする
 bindkey -e
 bindkey -M main "\e" vi-cmd-mode
+# surround.vimのような機能
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -a cs change-surround
+bindkey -a ds delete-surround
+bindkey -a ys add-surround
+bindkey -M visual S add-surround
 
 # zshの入力モード切り替えの時間を短く
 KEYTIMEOUT=1
