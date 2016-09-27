@@ -1,10 +1,3 @@
-# zsh-completions
-fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
-
-# 補完機能を有効にする
-autoload -Uz compinit
-compinit -u
-
 # シェルのデフォルトエディタ
 export EDITOR=vim
 
@@ -192,3 +185,24 @@ typeset -U path cdpath fpath manpath
 if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
     source $HOME/.zshrc.fzf
 fi
+
+# zplug
+export ZPLUG_HOME=$HOME/.cache/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-completions", lazy:true
+zplug "sindresorhus/pure", as:plugin, lazy:true
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
+
+# pure
+autoload -U promptinit; promptinit
+prompt pure
