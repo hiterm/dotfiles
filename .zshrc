@@ -29,7 +29,18 @@ bindkey "^[" vi-cmd-mode
 KEYTIMEOUT=1
 
 # プロンプト
-PROMPT='%F{blue}%n@%m%%%f '
+PROMPT_MAIN='%F{blue}%n@%m%%%f '
+# zshの入力モード情報を表示
+terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
+function zle-line-init zle-keymap-select {
+    PROMPT_2="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    PROMPT="%{$terminfo_down_sc$PROMPT_2$terminfo[rc]%}$PROMPT_MAIN"
+    zle reset-prompt
+}
+preexec () { print -rn -- $terminfo[el]; }
+zle -N zle-line-init
+zle -N zle-keymap-select
+# 右プロンプト
 # Gitの情報を右プロンプトに表示
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
