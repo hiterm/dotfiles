@@ -33,6 +33,8 @@ bindkey -a cs change-surround
 bindkey -a ds delete-surround
 bindkey -a ys add-surround
 bindkey -M visual S add-surround
+# push-line
+bindkey -M vicmd "q" push-line
 
 # zshの入力モード切り替えの時間を短く
 KEYTIMEOUT=1
