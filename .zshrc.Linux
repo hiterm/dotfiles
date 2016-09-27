@@ -1,17 +1,6 @@
 # ~/binをPATHに追加
 path=($HOME/bin(N-/) $path)
 
-# TeX Live
-path=(/usr/local/texlive/2014/bin/x86_64-linux(N-/) $path)
-manpath=(/usr/local/texlive/2014/texmf-dist/doc/man(N-/) $manpath)
-export INFOPATH="/usr/local/texlive/2014/texmf-dist/doc/info:$INFOPATH"
-
-# gemのPATH
-export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
-
-# awmtt
-path=($HOME/bin/awmtt(N-/) $path)
-
 # ロケールをターミナルでは英語に
 export LC_MESSAGES=en_US.utf8
 
@@ -19,7 +8,6 @@ alias ls="ls --color"
 alias diff="colordiff -u"
 
 alias rm="rm -i"
-alias firefox="firefox-bin"
 alias mikutter="env LC_ALL=ja_JP.UTF-8 ruby ~/bin/mikutter/mikutter.rb"
 
 # sudoでaliasを有効にする
