@@ -153,8 +153,9 @@ source /usr/local/opt/zplug/init.zsh
 
 zplug "zsh-users/zsh-completions", lazy:true
 
+# pure
 PURE_HOME=$ZPLUG_HOME/repos/sindresorhus/pure
-zplug "sindresorhus/pure", as:plugin, lazy:true, \
+zplug "sindresorhus/pure", lazy:true, \
 hook-build:"
 cd PURE_HOME
 ln -sf pure.zsh prompt_pure_setup
