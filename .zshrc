@@ -23,7 +23,7 @@ setopt interactive_comments
 
 # emacsとviを組み合わせたキーバインドにする
 bindkey -e
-bindkey "^[" vi-cmd-mode
+bindkey -M main "\e" vi-cmd-mode
 
 # zshの入力モード切り替えの時間を短く
 KEYTIMEOUT=1
