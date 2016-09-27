@@ -1,5 +1,5 @@
 # 補完を増やす
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 
 # 補完機能を有効にする
 autoload -Uz compinit
