@@ -1,12 +1,5 @@
 # Mac用の設定
 
-# brew install zsh --disable-etcdir としたため
-# /etc/zshenv の内容をコピーした
-# system-wide environment settings for zsh(1)
-if [ -x /usr/libexec/path_helper ]; then
-        eval `/usr/libexec/path_helper -s`
-fi
-
 path=(
     /usr/local/bin(N-/)
     /usr/local/sbin:/Applications/Ghostscript.app(N-/)
