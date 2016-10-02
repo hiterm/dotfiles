@@ -149,7 +149,8 @@ fi
 
 # zplug
 export ZPLUG_HOME=$HOME/.zsh/zplug
-source /usr/local/opt/zplug/init.zsh
+ZPLUG_INIT_DIR="/usr/local/opt/zplug"
+source $ZPLUG_INIT_DIR/init.zsh
 
 zplug "zsh-users/zsh-completions", lazy:true
 
