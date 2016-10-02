@@ -149,7 +149,12 @@ fi
 
 # zplug
 export ZPLUG_HOME=$HOME/.zsh/zplug
-ZPLUG_INIT_DIR="/usr/local/opt/zplug"
+if [ -f /usr/local/opt/zplug/init.zsh ]; then
+    ZPLUG_INIT_DIR="/usr/local/opt/zplug"
+elif [ -d $HOME/.zsh/zplug/ ]; then
+    git clone https://github.com/zplug/zplug.git $HOME/.zsh/zplug
+    ZPLUG_INIT_DIR="$HOME/.zsh/zplug"
+fi
 source $ZPLUG_INIT_DIR/init.zsh
 
 zplug "zsh-users/zsh-completions", lazy:true
