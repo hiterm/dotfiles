@@ -166,7 +166,6 @@ fpath=($PURE_HOME(N-/) $fpath)
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
 # enhancd
-export ENHANCD_COMMAND=ecd
 zplug "b4b4r07/enhancd", use:init.sh
 
 # Install plugins if there are plugins that have not been installed
