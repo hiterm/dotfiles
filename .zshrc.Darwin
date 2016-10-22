@@ -2,7 +2,8 @@
 
 path=(
     /usr/local/bin(N-/)
-    /usr/local/sbin:/Applications/Ghostscript.app(N-/)
+    /usr/local/sbin(N-/)
+    /Applications/Ghostscript.app(N-/)
     /Users/ht/.bin(N-/)
     ${path}
 )
