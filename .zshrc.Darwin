@@ -8,12 +8,6 @@ path=(
     ${path}
 )
 
-# rbenvの設定
-path=($HOME/.rbenv/bin(N-/) $path)
-eval "$(rbenv init -)"
-# tmux用の設定
-path=($HOME/.rbenv/shims(N-/) $path)
-
 # isabelle
 path=(/Applications/Isabelle2014.app/Isabelle/bin(N-/) $path)
 
