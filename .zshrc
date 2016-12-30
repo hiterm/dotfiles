@@ -207,3 +207,31 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+# hocsom settings
+alias hocsom-genfoler='emacs --script ~/.emacs.d/hocsom/script-genfolder.el'
+alias hocsom-debug='~/.emacs.d/hocsom/script-debug.sh'
+alias hocsom-eps='~/.emacs.d/hocsom/script-eps-input.sh'
+alias latexmk-h='latexmk -pdfdvi -latex="platex %O -synctex=1 %S" -pv *kakunin.tex'
+function latexmk-h-all () {
+    FSTDIR=`pwd`
+    find . -name "*kakunin.tex" | while read FILE
+    do
+        # ファイル名のみ表示
+        echo $(basename $FILE)
+        cd ${FILE%/*}
+        latexmk-h
+        cd $FSTDIR
+    done
+}
+function latexmk-h-all-c () {
+    FSTDIR=`pwd`
+    find . -name "*kakunin.tex" | while read FILE
+    do
+        # ファイル名のみ表示
+        echo $(basename $FILE)
+        cd ${FILE%/*}
+        latexmk -c $(basename $FILE)
+        cd $FSTDIR
+    done
+}
