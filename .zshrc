@@ -209,9 +209,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 # hocsom settings
-alias hocsom-genfoler='emacs --script ~/.emacs.d/hocsom/script-genfolder.el'
-alias hocsom-debug='~/.emacs.d/hocsom/script-debug.sh'
-alias hocsom-eps='~/.emacs.d/hocsom/script-eps-input.sh'
+path=($path $HOME/.emacs.d/hocsom/command/bin)
 alias latexmk-h='latexmk -pdfdvi -latex="platex %O -synctex=1 %S" -pv *kakunin.tex'
 function latexmk-h-all () {
     FSTDIR=`pwd`
