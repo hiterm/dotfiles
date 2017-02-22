@@ -233,3 +233,6 @@ function latexmk-h-all-c () {
         cd $FSTDIR
     done
 }
+
+# rails
+alias be="bundle exec"
