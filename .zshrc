@@ -138,6 +138,10 @@ setopt nobeep
 # pathの重複をなくす
 typeset -U path cdpath fpath manpath
 
+# 単語削除で/で止まるように
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+
 # OS毎の設定ファイルを読み込む
 [ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
 
