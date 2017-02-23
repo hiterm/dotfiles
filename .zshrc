@@ -141,6 +141,9 @@ typeset -U path cdpath fpath manpath
 # 単語削除で/で止まるように
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+# cdr
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
 
 # OS毎の設定ファイルを読み込む
 [ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
