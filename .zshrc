@@ -167,15 +167,8 @@ source $ZPLUG_INIT_DIR/init.zsh
 zplug "zsh-users/zsh-completions", lazy:true
 
 # pure
-PURE_HOME=$ZPLUG_HOME/repos/sindresorhus/pure
-zplug "sindresorhus/pure", lazy:true, \
-hook-build:"
-cd PURE_HOME
-ln -sf pure.zsh prompt_pure_setup
-ln -sf async.zsh async
-"
-fpath=($PURE_HOME(N-/) $fpath)
-
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
 
 # enhancd
 export ENHANCD_COMMAND=ecd
@@ -194,9 +187,7 @@ fi
 
 zplug load
 
-# pure
-autoload -U promptinit; promptinit
-prompt pure
+# pure settings
 VIM_PROMPT="❯"
 PROMPT='%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
 
