@@ -13,3 +13,4 @@
 	di = diff
 	co = commit
 	cm = commit
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
