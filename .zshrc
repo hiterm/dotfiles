@@ -210,7 +210,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 # hocsom settings
-path=($path $HOME/.emacs.d/hocsom/command/bin)
+path=($path $HOME/.emacs.d/hocsom/command/bin(N-/))
 alias latexmk-h='latexmk -pdfdvi -latex="platex %O -synctex=1 %S" -pv *kakunin.tex'
 function latexmk-h-all () {
     FSTDIR=`pwd`
