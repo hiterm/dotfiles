@@ -237,3 +237,7 @@ function latexmk-h-all-c () {
 
 # rails
 alias be="bundle exec"
+
+# rbenv
+path=($HOME/.rbenv/bin(N-/) $path)
+eval "$(rbenv init -)"
