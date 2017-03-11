@@ -241,3 +241,6 @@ alias be="bundle exec"
 # rbenv
 path=($HOME/.rbenv/bin(N-/) $path)
 eval "$(rbenv init -)"
+
+# cloud latex
+export CL_HOSTNAME=cloudlatex
