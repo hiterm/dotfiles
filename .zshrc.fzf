@@ -4,13 +4,13 @@
 
 # repeat history
 function fzf-history() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed 's/ *[0-9]* *//')
 }
 
 # CTRL-R - Paste the selected command from history into the command line
 function fzf-history-widget() {
     local tac=${commands[tac]:-"tail -r"}
-    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | sed 's/ *[0-9]*\** *//' | eval $tac | awk '!a[$0]++' | fzf +s)
+    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | sed 's/ *[0-9]*\** *//' | eval $tac | awk '!a[$0]++' | fzf-tmux +s)
     CURSOR=$#BUFFER
     zle clear-screen
 }
@@ -21,7 +21,7 @@ bindkey '^R' fzf-history-widget
 fbr() {
     local branches branch
     branches=$(git branch -vv) &&
-        branch=$(echo "$branches" | fzf +m) &&
+        branch=$(echo "$branches" | fzf-tmux +m) &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -45,7 +45,7 @@ fco() {
 fcs() {
     local commits commit
     commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
-        commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
+        commit=$(echo "$commits" | fzf-tmux --tac +s +m -e --ansi --reverse) &&
         echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
@@ -58,7 +58,7 @@ fstash() {
     local out q k sha
     while out=$(
         git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
-        fzf --ansi --no-sort --query="$q" --print-query \
+        fzf-tmux --ansi --no-sort --query="$q" --print-query \
             --expect=ctrl-d,ctrl-b);
     do
         mapfile -t out <<< "$out"
@@ -89,7 +89,7 @@ fdr () {
 
 # ghq
 function fhq {
-    local dir="$(ghq list -p | fzf)"
+    local dir="$(ghq list -p | fzf-tmux)"
     if [ -n "$dir" ] ; then
         cd "$dir"
     fi
