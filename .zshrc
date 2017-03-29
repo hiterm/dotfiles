@@ -146,6 +146,8 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 1000
 
+# fpath
+fpath=($fpath $HOME/.zsh/completion(N-/))
 
 # OS毎の設定ファイルを読み込む
 [ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
