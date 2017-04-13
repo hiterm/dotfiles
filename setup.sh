@@ -8,19 +8,22 @@ files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf .g
 
 for file in ${files[@]}; do
   if [ -e $HOME/$file ]; then
-    echo Already $HOME/$file exists.
+    if [ -L $HOME/$file ]; then
+      type=symlink
+    elif [ -f $HOME/$file ]; then
+      type=file
+    else
+      type=directory
+    fi
+    echo Already $type $HOME/$file exists.
     read -p 'Remove this? [y/n]' Answer
     case $Answer in
       [Yy]* )
-        rm $HOME/$file
-        break;
-        ;;
+        rm -rf $HOME/$file ;;
       [Nn]* )
-        break;
         ;;
       * )
-        echo Please answer YES or NO.
-        ;;
+        echo Please answer YES or NO. ;;
     esac
   fi
 done
@@ -34,21 +37,24 @@ vimfiles=(.vim .vimrc)
 
 for file in ${vimfiles[@]}; do
   if [ -e $HOME/$file ]; then
-    echo Already $HOME/$file exists.
+    if [ -L $HOME/$file ]; then
+      type=symlink
+    elif [ -f $HOME/$file ]; then
+      type=file
+    else
+      type=directory
+    fi
+    echo Already $type $HOME/$file exists.
     read -p 'Remove this? [y/n]' Answer
     case $Answer in
       [Yy]* )
-        rm $HOME/$file
-        break;
-        ;;
+        rm -rf $HOME/$file ;;
       [Nn]* )
-        break;
         ;;
       * )
-        echo Please answer YES or NO.
-        ;;
+        echo Please answer YES or NO.  ;;
     esac
   fi
 done
 
-git clone git@github.com:htlsne/vimrc.git $HOME/.vim
+git clone https://github.com/htlsne/vimrc.git $HOME/.vim
