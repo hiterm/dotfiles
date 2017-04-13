@@ -33,7 +33,8 @@ for file in ${files[@]}; do
   ln -s $DOTFILES_DIR/$file
 done
 
-ln -s $DOTFILES_DIR/.gitignore.`uname` .gitignore.os
+echo Linking .gitconfig.os
+ln -s $DOTFILES_DIR/.gitconfig.`uname` .gitconfig.os
 
 # vim
 
