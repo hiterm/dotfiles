@@ -33,6 +33,10 @@ for file in ${files[@]}; do
   ln -s $DOTFILES_DIR/$file
 done
 
+ln -s $DOTFILES_DIR/.gitignore.`uname` .gitignore.os
+
+# vim
+
 vimfiles=(.vim .vimrc)
 
 for file in ${vimfiles[@]}; do

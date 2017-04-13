@@ -1,0 +1,4 @@
+[core]
+	excludesfile = /Users/$USERNAME/.gitignore
+[credential]
+	helper = osxkeychain
