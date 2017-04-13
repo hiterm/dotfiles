@@ -15,4 +15,4 @@
 	cm = commit
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+	pushInsteadOf = https://github.com/
