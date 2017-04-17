@@ -165,6 +165,8 @@ if [ -f /usr/local/opt/zplug/init.zsh ]; then
 elif [ ! -d $HOME/.zsh/zplug/ ]; then
     git clone https://github.com/zplug/zplug.git $HOME/.zsh/zplug
     ZPLUG_INIT_DIR="$HOME/.zsh/zplug"
+else
+    ZPLUG_INIT_DIR="$HOME/.zsh/zplug"
 fi
 source $ZPLUG_INIT_DIR/init.zsh
 
