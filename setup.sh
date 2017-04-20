@@ -4,7 +4,7 @@ DOTFILES_DIR=$(cd $(dirname $0);pwd)
 
 cd $HOME
 
-files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf .gitignore)
+files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf)
 
 for file in ${files[@]}; do
   if [ -e $HOME/$file ]; then
@@ -32,6 +32,10 @@ for file in ${files[@]}; do
   echo Linking $file
   ln -s $DOTFILES_DIR/$file
 done
+
+echo Linking .gitignore
+mkdir -p $HOME/.config/git
+ln -s $DOTFILES_DIR/gitignore-global $HOME/.config/git/ignore
 
 echo Linking .gitconfig.os
 ln -s $DOTFILES_DIR/.gitconfig.`uname` .gitconfig.os
