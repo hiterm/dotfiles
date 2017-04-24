@@ -94,3 +94,12 @@ function fhq {
         cd "$dir"
     fi
 }
+
+# zshmarks
+function bd {
+    local dir="$(showmarks | fzf-tmux | awk -F'\t\t' '{ print $2 }')"
+    dir=${dir/#\~/$HOME}
+    if [ -n "$dir" ] ; then
+        cd "$dir"
+    fi
+}
