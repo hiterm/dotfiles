@@ -70,4 +70,4 @@ git clone https://github.com/htlsne/vimrc.git $HOME/.vim
 
 # tmux
 mkdir $HOME/.tmux.d
-git clone https://github.com/qqshfox/tmux-yank.git $HOME/.tmux.d/tmux-yank
+git clone https://github.com/tmux-plugins/tmux-yank.git $HOME/.tmux.d/tmux-yank
