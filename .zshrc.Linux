@@ -1,5 +1,5 @@
-# ~/binをPATHに追加
-path=($HOME/bin(N-/) $path)
+# ~/bin, gemをPATHに追加
+path=($HOME/bin(N-/) $(ruby -e 'print Gem.user_dir')/bin $path)
 
 # ロケールをターミナルでは英語に
 export LC_MESSAGES=en_US.utf8
