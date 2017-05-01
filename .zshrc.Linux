@@ -20,3 +20,8 @@ alias sudo="sudo "
 
 # 補完でsudo時にsbinをパスに入れる
 zstyle ':completion:*:sudo:*' command-path /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin
+
+# pacmatic
+if which pacmatic &>/dev/null; then
+    alias pacman=pacmatic
+fi
