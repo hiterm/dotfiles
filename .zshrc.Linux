@@ -1,8 +1,11 @@
-# ~/bin, gemをPATHに追加
+# PATH
 path=($HOME/bin(N-/) \
-    $(ruby -e 'print Gem.user_dir')/bin \
-    /opt/texbin \
+    /opt/texbin(N-/) \
     $path)
+# gem
+if which ruby &>/dev/null; then
+    path=($(ruby -e 'print Gem.user_dir')/bin $path)
+fi
 
 # ロケールをターミナルでは英語に
 export LC_MESSAGES=en_US.utf8
