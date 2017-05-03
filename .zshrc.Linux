@@ -7,9 +7,6 @@ if which ruby &>/dev/null; then
     path=($(ruby -e 'print Gem.user_dir')/bin $path)
 fi
 
-# ロケールをターミナルでは英語に
-export LC_MESSAGES=en_US.utf8
-
 alias ls="ls --color"
 alias diff="colordiff -u"
 
@@ -24,4 +21,9 @@ zstyle ':completion:*:sudo:*' command-path /bin /sbin /usr/bin /usr/sbin /usr/lo
 # pacmatic
 if which pacmatic &>/dev/null; then
     alias pacman=pacmatic
+fi
+
+# mikutter
+if [ -f $HOME/.ghq/toshia.dip.jp/mikutter/mikutter.rb ]; then
+    alias mikutter='env LC_MESSAGES=ja_JP.UTF-8 $HOME/.ghq/toshia.dip.jp/mikutter/mikutter.rb'
 fi
