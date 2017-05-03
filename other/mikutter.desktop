@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=mikutter
+Type=Application
+Categories=Network
+GenericName=mikutter
+Icon=/home/matl/.ghq/toshia.dip.jp/mikutter/core/skin/data/icon.png
+Exec=/usr/bin/ruby /home/matl/.ghq/toshia.dip.jp/mikutter/mikutter.rb
+Terminal=false
