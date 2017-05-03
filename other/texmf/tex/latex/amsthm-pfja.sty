@@ -1,0 +1,19 @@
+% qedを塗りつぶす
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand{\proofname}{\textbf{証明}}
+
+% proofのドットを何とかする
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+    % \itshape                   % DELETED
+    \bfseries                    % ADDED
+    #1\@addpunct{.}]\ignorespaces% ADD PERIOD
+    % #1]\ignorespaces           % DELETE PERIOD
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother

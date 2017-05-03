@@ -1,0 +1,34 @@
+\usepackage{environ}
+
+% macros
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\mdlmid}{\relmiddle|}
+\newcommand{\nin}{\not\in}
+\newcommand{\inv}{^{-1}}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\defarrow}{\overset{\text{def}}{\Leftrightarrow}}
+\newcommand{\longdefarrow}{\overset{\text{def}}{\Longleftrightarrow}}
+\newcommand{\textor}{\;\text{or}\;}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\isom}{\simeq}
+\newcommand{\angleb}[1]{\langle #1 \rangle}
+\newcommand{\units}{^\times}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Ima}{Im}
+
+% align*環境において，1行のみに番号をつけるマクロ
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+% environment
+\NewEnviron{ncenter}{
+  \begin{equation}
+    \text{\BODY}
+  \end{equation}
+}
