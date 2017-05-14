@@ -1,0 +1,8 @@
+# PATH
+path=(/opt/texbin(N-/) \
+    $path)
+# gem
+if which ruby &>/dev/null; then
+    path=($(ruby -e 'print Gem.user_dir')/bin $path)
+fi
+
