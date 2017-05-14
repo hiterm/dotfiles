@@ -4,7 +4,7 @@ DOTFILES_DIR=$(cd $(dirname $0);pwd)
 
 cd $HOME
 
-files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf)
+files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .zshenv .zshenv.`uname` .gitconfig .latexmkrc .tmux.conf)
 
 for file in ${files[@]}; do
   if [ -e $HOME/$file ]; then
@@ -16,15 +16,18 @@ for file in ${files[@]}; do
       type=directory
     fi
     echo Already $type $HOME/$file exists.
-    read -p 'Remove this? [y/n]' Answer
-    case $Answer in
-      [Yy]* )
-        rm -rf $HOME/$file ;;
-      [Nn]* )
-        ;;
-      * )
-        echo Please answer YES or NO. ;;
-    esac
+    while true; do
+      read -p 'Remove this? [y/n]' Answer
+      case $Answer in
+        [Yy]* )
+          rm -rf $HOME/$file
+          break ;;
+        [Nn]* )
+          break ;;
+        * )
+          echo Please answer YES or NO. ;;
+      esac
+    done
   fi
 done
 
