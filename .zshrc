@@ -1,3 +1,6 @@
+# シェルのデフォルトエディタ
+export EDITOR=vim
+
 # ocamlでrlwrapを有効に
 alias ocaml="rlwrap ocaml"
 alias luajitlatex='luajittex --fmt=luajitlatex.fmt'
