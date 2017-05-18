@@ -8,7 +8,9 @@ if which ruby &>/dev/null; then
 fi
 
 alias ls="ls --color"
-alias diff="colordiff -u"
+if which colordiff &>/dev/null; then
+    alias diff="colordiff"
+fi
 
 alias rm="rm -i"
 
