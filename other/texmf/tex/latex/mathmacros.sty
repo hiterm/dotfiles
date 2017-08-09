@@ -1,5 +1,3 @@
-\usepackage{environ}
-
 % macros
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -25,10 +23,3 @@
 
 % align*環境において，1行のみに番号をつけるマクロ
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-
-% environment
-\NewEnviron{ncenter}{
-  \begin{equation}
-    \text{\BODY}
-  \end{equation}
-}
