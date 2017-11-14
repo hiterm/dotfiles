@@ -251,3 +251,6 @@ fi
 
 # cloud latex
 export CL_HOSTNAME=cloudlatex
+
+# xclipのデフォルトselection
+alias xclip="xclip -selection clipboard"
