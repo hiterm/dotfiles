@@ -6,6 +6,7 @@ path=(
     /usr/local/bin(N-/)
     /usr/local/sbin(N-/)
     /Applications/Ghostscript.app(N-/)
+    /Library/TeX/texbin(N-/)
     ${path}
 )
 
