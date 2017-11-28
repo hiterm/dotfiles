@@ -174,7 +174,7 @@ zplug "zsh-users/zsh-completions", lazy:true
 
 # pure
 zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure", at:v1.5.2
+zplug "sindresorhus/pure"
 
 # enhancd
 export ENHANCD_COMMAND=fd
