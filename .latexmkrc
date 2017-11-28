@@ -12,3 +12,4 @@ if ($^O eq 'derwin') {
 } elsif ($^O eq 'linux') {
     $pdf_previewer = "evince";
 }
+$clean_ext="run.xml";
