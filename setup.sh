@@ -71,6 +71,10 @@ done
 
 git clone https://github.com/htlsne/vimrc.git $HOME/.vim
 
+# neovim
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.cache}
+ln -s $HOME/.vim $XDG_CONFIG_HOME/nvim
+
 # tmux
 mkdir $HOME/.tmux.d
 git clone https://github.com/tmux-plugins/tmux-yank.git $HOME/.tmux.d/tmux-yank
