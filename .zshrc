@@ -1,5 +1,9 @@
 # 環境変数
-export EDITOR=vim
+if type nvim > /dev/null; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 export XDG_CONFIG_HOME=$HOME/.cache
 
 # aliases
