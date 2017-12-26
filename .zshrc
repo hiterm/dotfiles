@@ -2,9 +2,12 @@
 export EDITOR=vim
 export XDG_CONFIG_HOME=$HOME/.cache
 
+# aliases
 # ocamlでrlwrapを有効に
 alias ocaml="rlwrap ocaml"
 alias luajitlatex='luajittex --fmt=luajitlatex.fmt'
+# neovim-remote
+alias nvim-server='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
