@@ -2,10 +2,12 @@
 path=($HOME/bin(N-/) \
     /opt/texbin(N-/) \
     $path)
-# gem
+# for gem
 if which ruby &>/dev/null; then
     path=($(ruby -e 'print Gem.user_dir')/bin $path)
 fi
+# for pip
+path=($HOME/.local/bin $path)
 
 alias ls="ls --color"
 if which colordiff &>/dev/null; then
