@@ -4,7 +4,7 @@ if type nvim > /dev/null; then
 else
     export EDITOR=vim
 fi
-export XDG_CONFIG_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
 
 # aliases
 # ocamlでrlwrapを有効に
