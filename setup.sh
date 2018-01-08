@@ -1,5 +1,7 @@
 #!/bin/sh
 
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+
 DOTFILES_DIR=$(cd $(dirname $0);pwd)
 
 cd $HOME
@@ -37,8 +39,8 @@ for file in ${files[@]}; do
 done
 
 echo Linking .gitignore
-mkdir -p $HOME/.config/git
-ln -s $DOTFILES_DIR/gitignore-global $HOME/.config/git/ignore
+mkdir -p $HOME/$XDG_CONFIG_HOME/git
+ln -s $DOTFILES_DIR/gitignore-global $HOME/$XDG_CONFIG_HOME/git/ignore
 
 echo Linking .gitconfig.os
 ln -s $DOTFILES_DIR/.gitconfig.`uname` .gitconfig.os
@@ -72,7 +74,6 @@ done
 git clone https://github.com/htlsne/vimrc.git $HOME/.vim
 
 # neovim
-XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.cache}
 ln -s $HOME/.vim $XDG_CONFIG_HOME/nvim
 
 # tmux
