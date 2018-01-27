@@ -262,3 +262,6 @@ export CL_HOSTNAME=cloudlatex
 
 # xclipのデフォルトselection
 alias xclip="xclip -selection clipboard"
+
+# latex
+alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
