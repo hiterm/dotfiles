@@ -6,7 +6,7 @@ DOTFILES_DIR=$(cd $(dirname $0);pwd)
 
 cd $HOME
 
-files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf)
+files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf .bundle)
 
 for file in ${files[@]}; do
   if [ -e $HOME/$file ]; then
