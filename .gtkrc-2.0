@@ -1,6 +1,6 @@
-include "/usr/local/share/themes/Clearlooks/gtk-2.0/gtkrc"
-#include "/usr/local/share/themes/Crux/gtk-2.0/gtkrc"
-#include "/usr/local/share/themes/Industrial/gtk-2.0/gtkrc"
-#include "/usr/local/share/themes/Mist/gtk-2.0/gtkrc"
-#include "/usr/local/share/themes/Redmond/gtk-2.0/gtkrc"
-#include "/usr/local/share/themes/ThinIce/gtk-2.0/gtkrc"
+# -- THEME AUTO-WRITTEN DO NOT EDIT
+include "/Users/ht/.themes/macOS-Sierra-master/gtk-2.0/gtkrc"
+
+include "/Users/ht/.gtkrc.mine"
+
+# -- THEME AUTO-WRITTEN DO NOT EDIT
