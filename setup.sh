@@ -55,8 +55,8 @@ done
 
 # git
 echo Linking .gitignore
-mkdir -p $HOME/$XDG_CONFIG_HOME/git
-ln -s $DOTFILES_DIR/gitignore-global $HOME/$XDG_CONFIG_HOME/git/ignore
+mkdir -p $XDG_CONFIG_HOME/git
+ln -s $DOTFILES_DIR/gitignore-global $XDG_CONFIG_HOME/git/ignore
 echo Linking .gitconfig.os
 ln -s $DOTFILES_DIR/.gitconfig.`uname` $HOME/.gitconfig.os
 
@@ -65,7 +65,11 @@ git clone https://github.com/htlsne/vimrc.git $HOME/.vim
 
 # neovim
 echo Linking $XDG_CONFIG_HOME/nvim
-ln -s $HOME/.vim $XDG_CONFIG_HOME/nvim
+if [ -e $XDG_CONFIG_HOME/nvim ] ; then
+  echo "ln: \"$XDG_CONFIG_HOME/nvim\" exists."
+else
+  ln -s $HOME/.vim $XDG_CONFIG_HOME/nvim
+fi
 
 # tmux
 mkdir $HOME/.tmux.d
