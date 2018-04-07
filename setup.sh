@@ -8,34 +8,47 @@ cd $HOME
 
 files=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf .bundle)
 
+exist_symlinks=()
+exist_files=()
+exist_dirs=()
 for file in ${files[@]}; do
   if [ -e $HOME/$file ]; then
     if [ -L $HOME/$file ]; then
-      type=symlink
+      echo "symlink $file"
+      exist_symlinks+=($file)
     elif [ -f $HOME/$file ]; then
-      type=file
+      exist_files+=($file)
     else
-      type=directory
+      exist_dirs+=($file)
     fi
-    echo Already $type $HOME/$file exists.
-    while true; do
-      read -p 'Remove this? [y/n]' Answer
-      case $Answer in
-        [Yy]* )
-          rm -rf $HOME/$file
-          break ;;
-        [Nn]* )
-          break ;;
-        * )
-          echo Please answer YES or NO. ;;
-      esac
-    done
   fi
+done
+echo "The following files exist."
+echo "File: ${exist_files[@]}"
+echo "Symlink: ${exist_symlinks[@]}"
+echo "Directory: ${exist_dirs[@]}"
+
+exist_all=(${exist_files[@]} ${exist_symlinks[@]} ${exist_dirs[@]})
+while true; do
+  read -p 'Remove these files? [y/n] ' Answer
+  case $Answer in
+    [Yy]* )
+      for file in ${exist_all[@]}; do
+        echo "Removing $file"
+        rm -f $HOME/$file
+      done
+      break ;;
+    [Nn]* )
+      echo "Please remove them by yourself."
+      exit ;;
+    * )
+      echo Please answer YES or NO. ;;
+  esac
 done
 
 for file in ${files[@]}; do
   echo Linking $file
-  ln -s $DOTFILES_DIR/$file
+  ln -s $DOTFILES_DIR/$file $HOME/$file
 done
 
 echo Linking .gitignore
