@@ -88,7 +88,7 @@ fstash() {
 fdr () {
     local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf-tmux)
     selected_dir=${selected_dir/#\~/$HOME}
-    if [ -n $selected_dir ]; then
+    if [ -n "$selected_dir" ]; then
         cd $selected_dir
     fi
 }
