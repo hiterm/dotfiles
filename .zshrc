@@ -222,32 +222,6 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# hocsom settings
-path=($path $HOME/.emacs.d/hocsom/command/bin(N-/))
-alias latexmk-h='latexmk -pdfdvi -latex="platex %O -synctex=1 %S" -pv *kakunin.tex'
-function latexmk-h-all () {
-    FSTDIR=`pwd`
-    find . -name "*kakunin.tex" | while read FILE
-    do
-        # ファイル名のみ表示
-        echo $(basename $FILE)
-        cd ${FILE%/*}
-        latexmk-h
-        cd $FSTDIR
-    done
-}
-function latexmk-h-all-c () {
-    FSTDIR=`pwd`
-    find . -name "*kakunin.tex" | while read FILE
-    do
-        # ファイル名のみ表示
-        echo $(basename $FILE)
-        cd ${FILE%/*}
-        latexmk -c $(basename $FILE)
-        cd $FSTDIR
-    done
-}
-
 # rails
 alias be="bundle exec"
 
@@ -256,9 +230,6 @@ path=($HOME/.rbenv/bin(N-/) $path)
 if which rbenv &>/dev/null; then
     eval "$(rbenv init -)"
 fi
-
-# cloud latex
-export CL_HOSTNAME=cloudlatex
 
 # xclipのデフォルトselection
 alias xclip="xclip -selection clipboard"
