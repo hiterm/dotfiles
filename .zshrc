@@ -184,11 +184,6 @@ zplug "zsh-users/zsh-completions", lazy:true
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 
-# enhancd
-export ENHANCD_COMMAND=fd
-export ENHANCD_FILTER=fzf-tmux
-zplug "b4b4r07/enhancd", use:"init.sh"
-
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "b4b4r07/zsh-gomi", if:"which fzf"
 zplug "jocelynmallon/zshmarks"

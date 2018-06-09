@@ -84,6 +84,17 @@ fstash() {
     done
 }
 
+# change directory
+fd() {
+    local dir
+    dir=$(((cdr -l | awk '{ print $2 }') ; find -L ${1:-.} -type d -maxdepth 3 -print 2> /dev/null) | fzf +m)
+    dir=${dir/#\~/$HOME}
+    if [ -n $dir ]; then
+        cd $dir
+    fi
+}
+
+
 # cdr
 fdr () {
     local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf-tmux)
