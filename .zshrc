@@ -185,7 +185,6 @@ zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "jocelynmallon/zshmarks"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
