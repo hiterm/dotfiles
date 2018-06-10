@@ -10,6 +10,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 # ocamlでrlwrapを有効に
 alias ocaml="rlwrap ocaml"
 alias luajitlatex='luajittex --fmt=luajitlatex.fmt'
+# neovim as vim
+if type nvim > /dev/null; then
+    alias vim=nvim
+fi
 # neovim-remote
 alias nvim-server='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 
