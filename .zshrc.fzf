@@ -10,13 +10,13 @@ fi
 
 # repeat history
 function fzf-history() {
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed 's/ *[0-9]* *//')
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux --prompt="History> " +s --tac | sed 's/ *[0-9]* *//')
 }
 
 # CTRL-R - Paste the selected command from history into the command line
 function fzf-history-widget() {
     local tac=${commands[tac]:-"tail -r"}
-    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | sed 's/ *[0-9]*\** *//' | eval $tac | awk '!a[$0]++' | fzf-tmux +s)
+    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | sed 's/ *[0-9]*\** *//' | eval $tac | awk '!a[$0]++' | fzf-tmux --prompt="History> " +s)
     CURSOR=$#BUFFER
     zle clear-screen
 }
@@ -27,7 +27,7 @@ bindkey '^R' fzf-history-widget
 fbr() {
     local branches branch
     branches=$(git branch -vv) &&
-        branch=$(echo "$branches" | fzf-tmux +m) &&
+        branch=$(echo "$branches" | fzf-tmux --prompt="Branch> " +m) &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -42,7 +42,7 @@ fco() {
     sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
     target=$(
     (echo "$tags"; echo "$branches") |
-    fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+    fzf-tmux --prompt="Checkout> " -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
 }
 
@@ -87,7 +87,7 @@ fstash() {
 # change directory
 fd() {
     local dir
-    dir=$(((cdr -l | awk '{ print $2 }') ; find -L ${1:-.} -type d -maxdepth 3 -print 2> /dev/null) | fzf +m)
+    dir=$(((cdr -l | awk '{ print $2 }') ; find -L ${1:-.} -type d -maxdepth 3 -print 2> /dev/null) | fzf --prompt="cd> " +m)
     dir=${dir/#\~/$HOME}
     if [ -n $dir ]; then
         cd $dir
@@ -97,7 +97,7 @@ fd() {
 
 # cdr
 fdr () {
-    local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf-tmux)
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf-tmux --prompt="cd> ")
     selected_dir=${selected_dir/#\~/$HOME}
     if [ -n "$selected_dir" ]; then
         cd $selected_dir
@@ -106,7 +106,7 @@ fdr () {
 
 # ghq
 function fhq {
-    local dir="$(ghq list -p | fzf-tmux)"
+    local dir="$(ghq list -p | fzf-tmux --prompt="ghq> ")"
     if [ -n "$dir" ] ; then
         cd "$dir"
     fi
@@ -115,7 +115,7 @@ function fhq {
 # bookmark
 function bd()
 {
-    local dir="$(cat .bookmarks | fzf | awk '{print $2}')"
+    local dir="$(cat .bookmarks | fzf --prompt="cd> " | awk '{print $2}')"
     if [ -n "$dir" ] ; then
         cd "$dir"
     fi
