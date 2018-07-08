@@ -164,6 +164,9 @@ fpath=($fpath $HOME/.zsh/completion(N-/))
 # OS毎の設定ファイルを読み込む
 [ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
 
+# git管理しない設定ファイルを読み込む
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
 # fzfの設定
 # fzfコマンドが存在し、設定ファイルも存在するとき読み込む
 if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
