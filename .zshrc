@@ -161,18 +161,6 @@ zstyle ':chpwd:*' recent-dirs-max 1000
 # fpath
 fpath=($fpath $HOME/.zsh/completion(N-/))
 
-# OS毎の設定ファイルを読み込む
-[ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
-
-# git管理しない設定ファイルを読み込む
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
-# fzfの設定
-# fzfコマンドが存在し、設定ファイルも存在するとき読み込む
-if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
-    source $HOME/.zshrc.fzf
-fi
-
 # zplug
 export ZPLUG_HOME=$HOME/.zsh/zplug
 if [ -f /usr/local/opt/zplug/init.zsh ]; then
@@ -236,3 +224,15 @@ alias xclip="xclip -selection clipboard"
 
 # latex
 alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
+
+# OS毎の設定ファイルを読み込む
+[ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
+
+# git管理しない設定ファイルを読み込む
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+# fzfの設定
+# fzfコマンドが存在し、設定ファイルも存在するとき読み込む
+if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
+    source $HOME/.zshrc.fzf
+fi
