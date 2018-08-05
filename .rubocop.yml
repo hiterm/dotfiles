@@ -9,3 +9,6 @@ Style/RedundantReturn:
 
 Style/TrailingUnderscoreVariable:
   Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
