@@ -213,12 +213,6 @@ zle -N zle-keymap-select
 # rails
 alias be="bundle exec"
 
-# rbenv
-path=($HOME/.rbenv/bin(N-/) $path)
-if which rbenv &>/dev/null; then
-    eval "$(rbenv init -)"
-fi
-
 # xclipのデフォルトselection
 alias xclip="xclip -selection clipboard"
 
@@ -235,4 +229,10 @@ alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 # fzfコマンドが存在し、設定ファイルも存在するとき読み込む
 if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
     source $HOME/.zshrc.fzf
+fi
+
+# rbenv
+path=($HOME/.rbenv/bin(N-/) $path)
+if which rbenv &>/dev/null; then
+    eval "$(rbenv init -)"
 fi
