@@ -6,7 +6,7 @@ DOTFILES_DIR=$(cd $(dirname $0);pwd)
 
 cd $HOME
 
-files_to_link=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf .bundle .rubocop.yml)
+files_to_link=(.zsh .zshrc .zshrc.fzf .zshrc.`uname` .gitconfig .latexmkrc .tmux.conf)
 files_other=(.gitconfig.os .vimrc)
 files=(${files_to_link[@]} ${files_other[@]})
 
