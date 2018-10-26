@@ -7,7 +7,7 @@
 	st = status
 	ca = commit -a
 	di = diff
-	co = commit
+	co = checkout
 	cm = commit
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [url "git@github.com:"]
