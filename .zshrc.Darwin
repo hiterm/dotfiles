@@ -1,8 +1,8 @@
 # Mac用の設定
 
 path=(
-    $HOME/.bin(N-/)
-    $HOME/.bin.Darwin(N-/)
+    $HOME/bin(N-/)
+    $HOME/bin.Darwin(N-/)
     /usr/local/bin(N-/)
     /usr/local/sbin(N-/)
     /Applications/Ghostscript.app(N-/)
@@ -18,7 +18,7 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 alias rm="rm -i"
 alias mikutter="~/.ghq/toshia.dip.jp/mikutter/mikutter.rb"
 alias ustroku="wine ~/Others/Wine/USTroku108/USTroku.exe"
-alias mpackaged="~/.bin/mikutter-packaged/mpackaged"
+alias mpackaged="~/bin/mikutter-packaged/mpackaged"
 
 alias updatedb='/usr/libexec/locate.updatedb'
 
