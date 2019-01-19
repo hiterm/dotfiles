@@ -16,6 +16,8 @@ if type nvim > /dev/null; then
 fi
 # neovim-remote
 alias nvim-server='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
+# git
+alias git-rmbr="git pull --prune && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' > /tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
