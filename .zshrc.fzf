@@ -92,14 +92,8 @@ fstash() {
 
 # change directory
 fd() {
-    # sed置換用に/をエスケープ
-    local home_esc=$(echo $HOME | sed 's,\/,\\\/,g')
-
     local dir
-    dir=$( ((cdr -l | awk '{ print $2 }') ;
-        find -L ${1:-$(pwd)} -type d -maxdepth 3 -print 2> /dev/null) |
-        sed "s/\~/$home_esc/" |
-        awk '!a[$0]++' |
+    dir=$( (find -L ${1:-.} -type d -print 2> /dev/null) |
         fzf --prompt="cd > " +m)
 
     if [ -n "$dir" ]; then
@@ -108,8 +102,8 @@ fd() {
 }
 
 
-# cdr
-fdr () {
+# cd history
+hd () {
     local selected_dir=$(cdr -l |
         awk '{ print $2 }' |
         fzf-tmux --prompt="cd> ")
