@@ -179,6 +179,9 @@ zplugin light sindresorhus/pure
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
 zplugin light zdharma/fast-syntax-highlighting
 
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
+
 # rails
 alias be="bundle exec"
 
