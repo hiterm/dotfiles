@@ -164,33 +164,20 @@ zstyle ':chpwd:*' recent-dirs-max 1000
 # fpath
 fpath=($fpath $HOME/.zsh/completion(N-/))
 
-# zplug
-export ZPLUG_HOME=$HOME/.zsh/zplug
-if [ -f /usr/local/opt/zplug/init.zsh ]; then
-    ZPLUG_INIT_DIR="/usr/local/opt/zplug"
-elif [ ! -d $HOME/.zsh/zplug/ ]; then
-    git clone https://github.com/zplug/zplug.git $HOME/.zsh/zplug
-    ZPLUG_INIT_DIR="$HOME/.zsh/zplug"
-else
-    ZPLUG_INIT_DIR="$HOME/.zsh/zplug"
+# zplugin
+if [ ! -d $HOME/.zplugin/bin/ ]; then
+    git clone https://github.com/zdharma/zplugin.git $HOME/.zplugin/bin
 fi
-source $ZPLUG_INIT_DIR/init.zsh
+source ~/.zplugin/bin/zplugin.zsh
 
-zplug "zsh-users/zsh-completions", lazy:true
+zplugin ice wait"0" blockf
+zplugin light zsh-users/zsh-completions
 
-# pure
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
 
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
+zplugin light zdharma/fast-syntax-highlighting
 
 # rails
 alias be="bundle exec"
@@ -218,5 +205,3 @@ path=($HOME/.rbenv/bin(N-/) $path)
 if which rbenv &>/dev/null; then
     eval "$(rbenv init -)"
 fi
-
-zplug load
