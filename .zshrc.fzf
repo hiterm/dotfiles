@@ -30,7 +30,7 @@ zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
 
 # fbr - checkout git branch
-fbr() {
+function fbr() {
     local branches branch
     branches=$(git branch -vv) &&
         branch=$(echo "$branches" | fzf-tmux --prompt="Branch> " +m) &&
@@ -38,7 +38,7 @@ fbr() {
 }
 
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
-fbr-remote() {
+function fbr-remote() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -47,7 +47,7 @@ fbr-remote() {
 }
 
 # fco - checkout git branch/tag
-fco() {
+function fco() {
     local tags branches target
     tags=$(
     git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
@@ -62,7 +62,7 @@ fco() {
 }
 
 # fcoc - checkout git commit
-fcoc() {
+function fcoc() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&
@@ -71,7 +71,7 @@ fcoc() {
 
 # fcs - get git commit sha
 # example usage: git rebase -i `fcs`
-fcs() {
+function fcs() {
     local commits commit
     commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
         commit=$(echo "$commits" | fzf-tmux --tac +s +m -e --ansi --reverse) &&
@@ -83,7 +83,7 @@ fcs() {
 # enter shows you the contents of the stash
 # ctrl-d shows a diff of the stash against your current HEAD
 # ctrl-b checks the stash out as a branch, for easier merging
-fstash() {
+function fstash() {
     local out q k sha
     while out=$(
         git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
@@ -108,7 +108,7 @@ fstash() {
 }
 
 # change directory
-fd() {
+function fd() {
     local dir
     dir=$( (find -L ${1:-.} -type d -print 2> /dev/null) |
         fzf --prompt="cd > " +m)
@@ -120,7 +120,7 @@ fd() {
 
 
 # cd history
-hd () {
+function hd () {
     local selected_dir=$(cdr -l |
         awk '{ print $2 }' |
         fzf-tmux --prompt="cd> ")
@@ -149,7 +149,7 @@ function bd()
     fi
 }
 
-fshow() {
+function fshow() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -164,7 +164,7 @@ FZF-EOF"
 alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
 _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
-fshow-preview() {
+function fshow-preview() {
   glNoGraph |
     fzf --no-sort --reverse --tiebreak=index --no-multi \
     --ansi --preview="$_viewGitLogLine" \
