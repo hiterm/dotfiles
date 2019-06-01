@@ -37,6 +37,15 @@ fbr() {
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
+# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+fbr-remote() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 # fco - checkout git branch/tag
 fco() {
     local tags branches target
@@ -50,6 +59,14 @@ fco() {
     (echo "$tags"; echo "$branches") |
     fzf-tmux --prompt="Checkout> " -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
+}
+
+# fcoc - checkout git commit
+fcoc() {
+  local commits commit
+  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
 # fcs - get git commit sha
@@ -131,3 +148,27 @@ function bd()
         cd "$dir"
     fi
 }
+
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
+# fshow-preview - git commit browser with previews
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+fshow-preview() {
+  glNoGraph |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+    --ansi --preview="$_viewGitLogLine" \
+    --header "enter to view, alt-y to copy hash" \
+    --bind "enter:execute:$_viewGitLogLine   | less -R" \
+    --bind "alt-y:execute:$_gitLogLineToHash | xclip"
+  }
