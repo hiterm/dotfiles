@@ -176,7 +176,7 @@ zplugin light zsh-users/zsh-completions
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay"
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic"
 zplugin light zdharma/fast-syntax-highlighting
 
 zplugin ice as"program" pick"bin/git-dsf"
