@@ -170,16 +170,16 @@ if [ ! -d $HOME/.zplugin/bin/ ]; then
 fi
 source ~/.zplugin/bin/zplugin.zsh
 
-zplugin ice wait"0" blockf
+zplugin ice wait"0" blockf lucid
 zplugin light zsh-users/zsh-completions
 
-zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin ice pick"async.zsh" src"pure.zsh" lucid
 zplugin light sindresorhus/pure
 
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic"
+zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zplugin light zdharma/fast-syntax-highlighting
 
-zplugin ice as"program" pick"bin/git-dsf"
+zplugin ice as"program" pick"bin/git-dsf" lucid
 zplugin light zdharma/zsh-diff-so-fancy
 
 # rails
