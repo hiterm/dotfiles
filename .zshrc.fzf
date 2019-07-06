@@ -24,7 +24,6 @@ function fzf-history-widget() {
         eval $tac | awk '!a[$0]++' |
         fzf-tmux --prompt="History> " +s)
     CURSOR=$#BUFFER
-    zle clear-screen
 }
 zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
@@ -56,7 +55,7 @@ function fco() {
     sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
     sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
     target=$(
-    (echo "$tags"; echo "$branches") |
+    (echo "$branches"; echo "$tags") |
     fzf-tmux --prompt="Checkout> " -- --no-hscroll --ansi +m -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
 }
