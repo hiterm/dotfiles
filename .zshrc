@@ -179,9 +179,6 @@ zplugin light sindresorhus/pure
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zplugin light zdharma/fast-syntax-highlighting
 
-zplugin ice as"program" pick"bin/git-dsf" lucid
-zplugin light zdharma/zsh-diff-so-fancy
-
 # rails
 alias be="bundle exec"
 
