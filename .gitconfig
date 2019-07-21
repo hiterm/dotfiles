@@ -14,5 +14,3 @@
 	pushInsteadOf = https://github.com/
 [include]
     path = .gitconfig.os
-[core]
-  pager = diff-so-fancy | less -FXRi
