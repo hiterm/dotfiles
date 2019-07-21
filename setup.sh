@@ -74,4 +74,4 @@ fi
 # tmux
 mkdir $HOME/.tmux.d
 git clone https://github.com/tmux-plugins/tmux-yank.git $HOME/.tmux.d/tmux-yank
-git clone https://github.com/htlsne/tmux-gruvbox.git $HOME/.tmux.d/tmux-gruvbox
+git clone https://github.com/goronfreeman/nord-tmux.git $HOME/.tmux.d/nord-tmux
