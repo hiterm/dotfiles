@@ -6,6 +6,10 @@ else
 fi
 export XDG_CONFIG_HOME=$HOME/.config
 
+# PATH
+## cargo
+export path=($path $HOME/.cargo/bin)
+
 # aliases
 # ocamlでrlwrapを有効に
 alias ocaml="rlwrap ocaml"
