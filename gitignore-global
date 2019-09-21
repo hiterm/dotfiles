@@ -4,6 +4,7 @@
 
 # vim
 *.swp
+Session.vim
 
 # latex
 *.aux
