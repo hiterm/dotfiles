@@ -15,6 +15,16 @@ export FZF_DEFAULT_OPTS='
   --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
 '
 
+# vim
+function fvim() {
+    local file
+    file=$( fzf-tmux --prompt="vim> " +m)
+
+    if [ -n "$file" ]; then
+        vim $file
+    fi
+}
+
 # repeat history
 function fzf-history() {
     # $(())とすると数式扱いになってしまうため、スペースを入れて$( ())とする
