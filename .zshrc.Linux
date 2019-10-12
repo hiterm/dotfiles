@@ -37,3 +37,5 @@ fi
 # 英語にする
 export LC_MESSAGES=en_US.UTF-8
 
+# pacdiff
+export DIFFPROG='nvim -d'
