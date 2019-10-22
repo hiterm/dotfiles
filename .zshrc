@@ -210,3 +210,8 @@ path=($HOME/.rbenv/bin(N-/) $path)
 if which rbenv &>/dev/null; then
     eval "$(rbenv init -)"
 fi
+
+# mkdir and cd
+function mkdircd() {
+  mkdir $1 && cd $_
+}
