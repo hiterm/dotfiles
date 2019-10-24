@@ -184,6 +184,13 @@ zplugin light sindresorhus/pure
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zplugin light zdharma/fast-syntax-highlighting
 
+# rbenv
+path=($HOME/.rbenv/bin(N-/) $path)
+if type rbenv > /dev/null 2>&1; then
+    zplugin ice wait"0" lucid
+    zplugin light htlsne/zplugin-rbenv
+fi
+
 # rails
 alias be="bundle exec"
 
@@ -203,12 +210,6 @@ alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 # fzfコマンドが存在し、設定ファイルも存在するとき読み込む
 if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
     source $HOME/.zshrc.fzf
-fi
-
-# rbenv
-path=($HOME/.rbenv/bin(N-/) $path)
-if which rbenv &>/dev/null; then
-    eval "$(rbenv init -)"
 fi
 
 # mkdir and cd
