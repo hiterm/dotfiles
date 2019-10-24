@@ -138,7 +138,8 @@ function fd() {
 # cd history
 function hd () {
     local selected_dir=$(cdr -l |
-        awk '{ print $2 }' |
+        sed 's/^[^ ][^ ]*  *//' |
+        sed 's/\\ / /g' |
         fzf-tmux --prompt="cd> ")
     selected_dir=${selected_dir/#\~/$HOME}
     if [ -n "$selected_dir" ]; then
