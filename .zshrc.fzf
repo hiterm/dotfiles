@@ -145,7 +145,7 @@ function hd () {
         fzf-tmux --prompt="cd> ")
     selected_dir=${selected_dir/#\~/$HOME}
     if [ -n "$selected_dir" ]; then
-        cd $selected_dir
+        cd "$selected_dir"
     fi
 }
 
