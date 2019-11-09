@@ -1,0 +1,5 @@
+bind generic g      move-first-line
+bind generic G      move-last-line
+bind main    G      move-last-line
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
