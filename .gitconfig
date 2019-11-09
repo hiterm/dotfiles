@@ -9,6 +9,8 @@
 	di = diff
 	co = checkout
 	cm = commit
+  sw = switch
+  rs = restore
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
