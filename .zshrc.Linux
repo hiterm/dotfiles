@@ -38,7 +38,7 @@ fi
 export LC_MESSAGES=en_US.UTF-8
 
 # pacdiff
-export DIFFPROG='nvim -d'
+export DIFFPROG='nvim -u NONE -d'
 
 # node
 PATH="$HOME/.node_modules/bin:$PATH"
