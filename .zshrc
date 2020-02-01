@@ -170,26 +170,26 @@ zstyle ':chpwd:*' recent-dirs-max 1000
 # fpath
 fpath=($fpath $HOME/.zsh/completion(N-/))
 
-# zplugin
-if [ ! -d $HOME/.zplugin/bin/ ]; then
-    git clone https://github.com/zdharma/zplugin.git $HOME/.zplugin/bin
+# zinit
+if [ ! -d $HOME/.zinit/bin/ ]; then
+    git clone https://github.com/zdharma/zinit.git $HOME/.zinit/bin
 fi
-source ~/.zplugin/bin/zplugin.zsh
+source ~/.zinit/bin/zinit.zsh
 
-zplugin ice wait"0" blockf lucid
-zplugin light zsh-users/zsh-completions
+zinit ice wait"0" blockf lucid
+zinit light zsh-users/zsh-completions
 
-zplugin ice pick"async.zsh" src"pure.zsh" lucid
-zplugin light sindresorhus/pure
+zinit ice pick"async.zsh" src"pure.zsh" lucid
+zinit light sindresorhus/pure
 
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
+zinit light zdharma/fast-syntax-highlighting
 
 # rbenv
 path=($HOME/.rbenv/bin(N-/) $path)
 if type rbenv > /dev/null 2>&1; then
-    zplugin ice wait"0" lucid
-    zplugin light htlsne/zplugin-rbenv
+    zinit ice wait"0" lucid
+    zinit light htlsne/zinit-rbenv
 fi
 
 # rails
