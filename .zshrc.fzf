@@ -28,18 +28,21 @@ function fvim() {
 # repeat history
 function fzf-history() {
     # $(())とすると数式扱いになってしまうため、スペースを入れて$( ())とする
-    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
+    command=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
         fzf-tmux --prompt="History> " +s --tac |
         sed 's/ *[0-9]* *//')
+    command=$(echo $command)
+    print -z $command
 }
 
 # CTRL-R - Paste the selected command from history into the command line
 function fzf-history-widget() {
     local tac=${commands[tac]:-"tail -r"}
-    BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
+    command=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
         sed 's/ *[0-9]*\** *//' |
         eval $tac | awk '!a[$0]++' |
         fzf-tmux --prompt="History> " +s)
+    BUFFER=$(echo $command)
     CURSOR=$#BUFFER
 }
 zle     -N   fzf-history-widget
