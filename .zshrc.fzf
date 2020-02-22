@@ -145,7 +145,7 @@ function hd () {
         sed 's/\\ / /g' |
         sed 's/\\(/(/g' |
         sed 's/\\)/)/g' |
-        fzf-tmux --prompt="cd> ")
+        fzf-tmux +s --prompt="cd> ")
     selected_dir=${selected_dir/#\~/$HOME}
     if [ -n "$selected_dir" ]; then
         cd "$selected_dir"
