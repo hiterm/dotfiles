@@ -127,7 +127,7 @@ function fstash() {
 }
 
 # change directory
-function fd() {
+function fzd() {
     local dir
     dir=$( (find -L ${1:-.} -type d -print 2> /dev/null) |
         fzf --prompt="cd > " +m)
