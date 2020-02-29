@@ -24,6 +24,9 @@ alias nvim-server='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 alias git-rmbr="git pull --prune && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
 alias psgrep="ps aux | grep"
 alias k="kubectl"
+if type exa > /dev/null; then
+    alias es=exa
+fi
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
