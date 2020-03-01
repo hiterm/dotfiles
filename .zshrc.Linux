@@ -9,7 +9,6 @@ fi
 # for pip
 path=($HOME/.local/bin $path)
 
-alias ls="ls --color"
 if which colordiff &>/dev/null; then
     alias diff="colordiff"
 fi

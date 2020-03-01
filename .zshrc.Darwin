@@ -13,9 +13,6 @@ path=(
 
 # aliases
 alias cemacs="open -a /Applications/Emacs.app"
-if type gls > /dev/null; then
-    alias ls=gls
-fi
 alias rm="rm -i"
 alias mikutter="~/.ghq/toshia.dip.jp/mikutter/mikutter.rb"
 alias ustroku="wine ~/Others/Wine/USTroku108/USTroku.exe"

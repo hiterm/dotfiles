@@ -11,7 +11,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export path=($path $HOME/.cargo/bin)
 
 # dircolors
-test -r "$HOME/.nord-dircolors/src/dir_colors" && eval $(dircolors ~/.nord-dircolors/src/dir_colors)
+if type dircolors > /dev/null; then
+  test -r "$HOME/.nord-dircolors/src/dir_colors" && eval $(dircolors ~/.nord-dircolors/src/dir_colors)
+fi
 
 # aliases
 # ocamlでrlwrapを有効に
@@ -28,7 +30,7 @@ alias git-rmbr="git pull --prune && git branch -r | awk '{print \$1}' | egrep -v
 alias psgrep="ps aux | grep"
 alias k="kubectl"
 if type exa > /dev/null; then
-    alias es=exa
+    alias ls=exa
 fi
 
 # 補完で大文字小文字を区別しない
