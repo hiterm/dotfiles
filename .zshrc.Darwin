@@ -11,10 +11,11 @@ path=(
     ${path}
 )
 
+# aliases
 alias cemacs="open -a /Applications/Emacs.app"
-alias ls="ls -G"
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
+if type gls > /dev/null; then
+    alias ls=gls
+fi
 alias rm="rm -i"
 alias mikutter="~/.ghq/toshia.dip.jp/mikutter/mikutter.rb"
 alias ustroku="wine ~/Others/Wine/USTroku108/USTroku.exe"
@@ -37,7 +38,3 @@ export GTK_PATH=/usr/local/lib/gtk-2.0
 
 # 補完で濁点を正しく表示
 setopt combiningchars
-
-# macvimのalias
-alias mvim-t='mvim --remote-tab'
-alias mvimt='mvim --remote-tab'

@@ -10,6 +10,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 ## cargo
 export path=($path $HOME/.cargo/bin)
 
+# dircolors
+test -r "$HOME/.nord-dircolors/src/dir_colors" && eval $(dircolors ~/.nord-dircolors/src/dir_colors)
+
 # aliases
 # ocamlでrlwrapを有効に
 alias ocaml="rlwrap ocaml"
