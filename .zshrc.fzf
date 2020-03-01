@@ -30,8 +30,7 @@ function fzf-history() {
     # $(())とすると数式扱いになってしまうため、スペースを入れて$( ())とする
     command=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
         fzf-tmux --prompt="History> " +s --tac |
-        sed 's/ *[0-9]* *//'|
-        awk '{gsub(/\\n/, "\n", $0); print $0}')
+        sed 's/ *[0-9]* *//')
     print -z $command
 }
 
@@ -41,8 +40,7 @@ function fzf-history-widget() {
     BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
         sed 's/ *[0-9]*\** *//' |
         eval $tac | awk '!a[$0]++' |
-        fzf-tmux --prompt="History> " +s |
-        awk '{gsub(/\\n/, "\n", $0); print $0}')
+        fzf-tmux --prompt="History> " +s)
     CURSOR=$#BUFFER
 }
 zle     -N   fzf-history-widget
