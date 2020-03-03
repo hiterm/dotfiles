@@ -187,8 +187,8 @@ source ~/.zinit/bin/zinit.zsh
 zinit ice wait"0" blockf lucid
 zinit light zsh-users/zsh-completions
 
-zinit ice pick"async.zsh" src"pure.zsh" lucid
-zinit light sindresorhus/pure
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
 
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zinit light zdharma/fast-syntax-highlighting
@@ -225,3 +225,6 @@ fi
 function mkdircd() {
   mkdir $1 && cd $_
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

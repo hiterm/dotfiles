@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS='
 # vim
 function fvim() {
     local file
-    file=$( fzf-tmux --prompt="vim> " +m)
+    file=$( fzf --prompt="vim> " +m)
 
     if [ -n "$file" ]; then
         vim $file
@@ -29,7 +29,7 @@ function fvim() {
 function fzf-history() {
     # $(())とすると数式扱いになってしまうため、スペースを入れて$( ())とする
     command=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
-        fzf-tmux --prompt="History> " +s --tac |
+        fzf --prompt="History> " +s --tac |
         sed 's/ *[0-9]* *//')
     print -z $command
 }
@@ -40,7 +40,7 @@ function fzf-history-widget() {
     BUFFER=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) |
         sed 's/ *[0-9]*\** *//' |
         eval $tac | awk '!a[$0]++' |
-        fzf-tmux --prompt="History> " +s)
+        fzf --prompt="History> " +s)
     CURSOR=$#BUFFER
 }
 zle     -N   fzf-history-widget
@@ -50,7 +50,7 @@ bindkey '^R' fzf-history-widget
 function fbr() {
     local branches branch
     branches=$(git branch -vv) &&
-        branch=$(echo "$branches" | fzf-tmux --prompt="Branch> " +m) &&
+        branch=$(echo "$branches" | fzf --prompt="Branch> " +m) &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -59,7 +59,7 @@ function fbr-remote() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+           fzf -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
@@ -74,7 +74,7 @@ function fco() {
     sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
     target=$(
     (echo "$branches"; echo "$tags") |
-    fzf-tmux --prompt="Checkout> " -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+    fzf --prompt="Checkout> " -- --no-hscroll --ansi +m -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
 }
 
@@ -91,7 +91,7 @@ function fcoc() {
 function fcs() {
     local commits commit
     commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
-        commit=$(echo "$commits" | fzf-tmux --tac +s +m -e --ansi --reverse) &&
+        commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
         echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
@@ -104,7 +104,7 @@ function fstash() {
     local out q k sha
     while out=$(
         git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
-        fzf-tmux --ansi --no-sort --query="$q" --print-query \
+        fzf --ansi --no-sort --query="$q" --print-query \
             --expect=ctrl-d,ctrl-b);
     do
         mapfile -t out <<< "$out"
@@ -143,7 +143,7 @@ function hd () {
         sed 's/\\ / /g' |
         sed 's/\\(/(/g' |
         sed 's/\\)/)/g' |
-        fzf-tmux +s --prompt="cd> ")
+        fzf +s --prompt="cd> ")
     selected_dir=${selected_dir/#\~/$HOME}
     if [ -n "$selected_dir" ]; then
         cd "$selected_dir"
@@ -152,7 +152,7 @@ function hd () {
 
 # ghq
 function fhq {
-    local dir="$(ghq list -p | fzf-tmux --prompt="ghq> ")"
+    local dir="$(ghq list -p | fzf --prompt="ghq> ")"
     if [ -n "$dir" ] ; then
         cd "$dir"
     fi
