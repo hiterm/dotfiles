@@ -168,7 +168,10 @@ setopt nobeep
 typeset -U path cdpath fpath manpath
 
 # 単語削除で/で止まるように
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
+zstyle ':zle:*' word-style unspecified
 
 # cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
