@@ -21,7 +21,7 @@ function fvim() {
     file=$( fzf --prompt="vim> " +m)
 
     if [ -n "$file" ]; then
-        vim $file
+        print -z vim $file
     fi
 }
 
