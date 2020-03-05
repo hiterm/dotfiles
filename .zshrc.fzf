@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS='
 # vim
 function fvim() {
     local file
-    file=$(fd -H -E .git | fzf --prompt="vim> " +m)
+    file=$(fd -H --type file -E .git | fzf +m --prompt="vim> " --preview="bat --color always {}")
 
     if [ -n "$file" ]; then
         print -z vim $file
