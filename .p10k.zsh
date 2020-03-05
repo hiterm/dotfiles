@@ -19,6 +19,11 @@
 [[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
+ARROW_UP_SYMBOL=$'\uf55c'
+ARROW_DOWN_SYMBOL=$'\uf554'
+ARROW_LEFT_SYMBOL=$'\uf54c'
+ARROW_RIGHT_SYMBOL=$'\uf553'
+
 () {
   emulate -L zsh -o extended_glob
 
@@ -371,7 +376,7 @@
 
   # Formatter for Git status.
   #
-  # Example output: master ↓42↑42 *42 merge ~42 +42 !42 ?42.
+  # Example output: master ${ARROW_DOWN_SYMBOL}42${ARROW_UP_SYMBOL}42 *42 merge ~42 +42 !42 ?42.
   #
   # You can edit the function to customize how Git status looks.
   #
@@ -427,16 +432,16 @@
       res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"  # escape %
     fi
 
-    # ↓42 if behind the remote.
-    (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}↓${VCS_STATUS_COMMITS_BEHIND}"
-    # ↑42 if ahead of the remote; no leading space if also behind the remote: ↓42↑42.
+    # ${ARROW_DOWN_SYMBOL}42 if behind the remote.
+    (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}${ARROW_DOWN_SYMBOL}${VCS_STATUS_COMMITS_BEHIND}"
+    # ${ARROW_UP_SYMBOL}42 if ahead of the remote; no leading space if also behind the remote: ${ARROW_DOWN_SYMBOL}42${ARROW_UP_SYMBOL}42.
     (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
-    (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}↑${VCS_STATUS_COMMITS_AHEAD}"
-    # ←42 if behind the push remote.
-    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}←${VCS_STATUS_PUSH_COMMITS_BEHIND}"
+    (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}${ARROW_UP_SYMBOL}${VCS_STATUS_COMMITS_AHEAD}"
+    # ${ARROW_LEFT_SYMBOL}42 if behind the push remote.
+    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}${ARROW_LEFT_SYMBOL}${VCS_STATUS_PUSH_COMMITS_BEHIND}"
     (( VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" "
-    # →42 if ahead of the push remote; no leading space if also behind: ←42→42.
-    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}→${VCS_STATUS_PUSH_COMMITS_AHEAD}"
+    # ${ARROW_RIGHT_SYMBOL}42 if ahead of the push remote; no leading space if also behind: ${ARROW_LEFT_SYMBOL}42${ARROW_RIGHT_SYMBOL}42.
+    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}${ARROW_RIGHT_SYMBOL}${VCS_STATUS_PUSH_COMMITS_AHEAD}"
     # *42 if have stashes.
     (( VCS_STATUS_STASHES        )) && res+=" ${clean}*${VCS_STATUS_STASHES}"
     # 'merge' if the repo is in an unusual state.
@@ -1344,7 +1349,7 @@
   #   P9K_IP_TX_BYTES   | total number of bytes sent
   #   P9K_IP_RX_RATE    | receive rate (since last prompt)
   #   P9K_IP_TX_RATE    | send rate (since last prompt)
-  typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='$P9K_IP_IP${P9K_IP_RX_RATE:+ %2F↓$P9K_IP_RX_RATE}${P9K_IP_TX_RATE:+ %3F↑$P9K_IP_TX_RATE}'
+  typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='$P9K_IP_IP${P9K_IP_RX_RATE:+ %2F${ARROW_DOWN_SYMBOL}$P9K_IP_RX_RATE}${P9K_IP_TX_RATE:+ %3F${ARROW_UP_SYMBOL}$P9K_IP_TX_RATE}'
   # Show information for the first network interface whose name matches this regular expression.
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='e.*'
