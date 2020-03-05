@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS='
 # vim
 function fvim() {
     local file
-    file=$( fzf --prompt="vim> " +m)
+    file=$(fd -H -E .git | fzf --prompt="vim> " +m)
 
     if [ -n "$file" ]; then
         print -z vim $file
