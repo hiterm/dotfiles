@@ -27,8 +27,17 @@ fi
 alias nvim-server='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 # git
 alias git-rmbr="git pull --prune && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
+# ps
 alias psgrep="ps aux | grep"
+# rails
+alias be="bundle exec"
+# xclipのデフォルトselection
+alias xclip="xclip -selection clipboard"
+# latex
+alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
+# kubectl
 alias k="kubectl"
+# exa
 if type exa > /dev/null; then
     alias ls=exa
 fi
@@ -202,15 +211,6 @@ if type rbenv > /dev/null 2>&1; then
     zinit ice wait"0" lucid
     zinit light htlsne/zinit-rbenv
 fi
-
-# rails
-alias be="bundle exec"
-
-# xclipのデフォルトselection
-alias xclip="xclip -selection clipboard"
-
-# latex
-alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 
 # OS毎の設定ファイルを読み込む
 [ -f $HOME/.zshrc.`uname` ] && source $HOME/.zshrc.`uname`
