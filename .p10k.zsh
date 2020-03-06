@@ -20,7 +20,7 @@
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
 ARROW_UP_SYMBOL=$'\uf55c'
-ARROW_DOWN_SYMBOL=$'\uf554'
+ARROW_DOWN_SYMBOL=$'\uf544'
 ARROW_LEFT_SYMBOL=$'\uf54c'
 ARROW_RIGHT_SYMBOL=$'\uf553'
 
