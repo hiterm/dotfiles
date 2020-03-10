@@ -49,8 +49,8 @@ bindkey '^R' fzf-history-widget
 # fbr - checkout git branch
 function fbr() {
     local branches branch
-    branches=$(git branch -vv) &&
-        branch=$(echo "$branches" | fzf --prompt="Branch> " +m) &&
+    branches=$(git branch | grep -v "^* " | sed "s/^  //") &&
+        branch=$(echo "$branches" | fzf +m --prompt="Branch> " --preview="git log {}") &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -74,7 +74,7 @@ function fco() {
     sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
     target=$(
     (echo "$branches"; echo "$tags") |
-    fzf --prompt="Checkout> " -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+    fzf --prompt="Checkout> " --no-hscroll --ansi +m -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
 }
 
