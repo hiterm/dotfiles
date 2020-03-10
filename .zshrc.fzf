@@ -155,6 +155,21 @@ function hd () {
     fi
 }
 
+# cd to parent directory
+function cdp() {
+  dir=$( (
+    var=$(pwd)
+    while [ -n "$var" ]; do
+      var=$(echo "$var" | rg -o "/.+/" | sed "s/.$//")
+      echo "$var"
+    done
+  ) | fzf --prompt="cd > " +m)
+
+    if [ -n "$dir" ]; then
+        cd $dir
+    fi
+}
+
 # ghq
 function fhq {
     local dir="$(ghq list -p | fzf --prompt="ghq> ")"
