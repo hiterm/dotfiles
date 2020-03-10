@@ -46,6 +46,11 @@ function fzf-history-widget() {
 zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
 
+# snippets
+function fsnips() {
+  print -z $(cat .zsh_snips | fzf)
+}
+
 # fbr - checkout git branch
 function fbr() {
     local branches branch
