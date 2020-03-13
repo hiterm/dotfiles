@@ -205,6 +205,9 @@ zinit light romkatv/powerlevel10k
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zinit light zdharma/fast-syntax-highlighting
 
+zinit ice wait"0" pick"plugins/git-auto-fetch/git-auto-fetch.plugin.zsh" lucid
+zinit light ohmyzsh/ohmyzsh
+
 # rbenv
 path=($HOME/.rbenv/bin(N-/) $path)
 if type rbenv > /dev/null 2>&1; then
