@@ -109,6 +109,9 @@ zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAU
 # マッチ種別を別々に表示
 zstyle ':completion:*' group-name ''
 
+# 補完後に|でスペースを削除しない
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
+
 # ディレクトリの移動履歴を保存
 setopt auto_pushd
 
