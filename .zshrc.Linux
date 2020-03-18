@@ -2,10 +2,6 @@
 path=($HOME/bin(N-/) \
     /opt/texbin(N-/) \
     $path)
-# for gem
-if which ruby &>/dev/null; then
-    path=($(ruby -e 'print Gem.user_dir')/bin $path)
-fi
 # for pip
 path=($HOME/.local/bin $path)
 

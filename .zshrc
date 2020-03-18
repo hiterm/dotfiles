@@ -1,3 +1,9 @@
+# zpmod
+# uncomment to use zpmod
+#
+# module_path+=( "$HOME/.zinit/mod-bin/zmodules/Src" )
+# zmodload zdharma/zplugin
+
 # 環境変数
 if type nvim > /dev/null; then
     export EDITOR=nvim
@@ -205,11 +211,11 @@ zinit light zsh-users/zsh-completions
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
-zinit ice wait"0" atinit"zpcompinit; zpcdreplay" atload"fast-theme -q q-jmnemonic" lucid
-zinit light zdharma/fast-syntax-highlighting
-
 zinit ice wait"0" pick"plugins/git-auto-fetch/git-auto-fetch.plugin.zsh" lucid
 zinit light ohmyzsh/ohmyzsh
+
+zinit ice wait"0" atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" atload"fast-theme -q q-jmnemonic" lucid
+zinit light zdharma/fast-syntax-highlighting
 
 # rbenv
 path=($HOME/.rbenv/bin(N-/) $path)
