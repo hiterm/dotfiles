@@ -77,4 +77,4 @@ git clone https://github.com/tmux-plugins/tmux-yank.git $HOME/.tmux.d/tmux-yank
 git clone https://github.com/goronfreeman/nord-tmux.git $HOME/.tmux.d/nord-tmux
 
 # dircolors nord
-git clone https://github.com/arcticicestudio/nord-dircolors.git $HOME/.nord-dircolors
+git clone https://github.com/htlsne/nord-dircolors.git $HOME/.nord-dircolors

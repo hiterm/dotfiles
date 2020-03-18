@@ -39,7 +39,7 @@ alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 alias k="kubectl"
 # exa
 if type exa > /dev/null; then
-    alias ls=exa
+    alias ls="exa -F"
 fi
 
 # 補完で大文字小文字を区別しない
