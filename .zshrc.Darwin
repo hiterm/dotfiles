@@ -41,3 +41,8 @@ export GTK_PATH=/usr/local/lib/gtk-2.0
 
 # 補完で濁点を正しく表示
 setopt combiningchars
+
+# alias for coreutils
+alias base64=gbase64
+alias dircolors=gdircolors
+alias grep=ggrep
