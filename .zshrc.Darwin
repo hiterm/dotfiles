@@ -46,3 +46,4 @@ setopt combiningchars
 alias base64=gbase64
 alias dircolors=gdircolors
 alias grep=ggrep
+alias sed=gsed
