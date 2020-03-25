@@ -47,7 +47,7 @@ zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
 
 # snippets
-function fsnips() {
+function fsnip() {
   print -z $(cat .zsh_snips | fzf)
 }
 
