@@ -14,7 +14,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # PATH
 ## cargo
-export path=($path $HOME/.cargo/bin)
+export path=($HOME/.cargo/bin $path)
 
 # dircolors
 if type dircolors > /dev/null; then
