@@ -44,9 +44,8 @@ alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 # kubectl
 alias k="kubectl"
 # exa
-if type exa > /dev/null; then
-    alias ls="exa -F"
-fi
+alias le="exa"
+alias lef="exa -F"
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
