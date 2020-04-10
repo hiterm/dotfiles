@@ -48,7 +48,7 @@ bindkey '^R' fzf-history-widget
 
 # snippets
 function fsnip() {
-  print -z $(cat .zsh_snips | fzf)
+  print -z $(cat ~/.zsh_snips | fzf)
 }
 
 # fbr - checkout git branch
