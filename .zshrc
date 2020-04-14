@@ -43,6 +43,8 @@ alias xclip="xclip -selection clipboard"
 alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 # kubectl
 alias k="kubectl"
+# ls
+alias ls="ls --color"
 # exa
 alias le="exa"
 alias lef="exa -F"
