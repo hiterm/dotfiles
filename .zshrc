@@ -197,6 +197,11 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 1000
 
+# Ctrl-Zでfg
+_zsh_cli_fg() { fg; }
+zle -N _zsh_cli_fg
+bindkey '^Z' _zsh_cli_fg
+
 # fpath
 fpath=($fpath $HOME/.zsh/completion(N-/))
 
