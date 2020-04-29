@@ -16,6 +16,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 ## cargo
 export path=($HOME/.cargo/bin $path)
 
+## Go
+export GOPATH=$HOME/go
+path=($GOPATH/bin $path)
+
 # dircolors
 if type dircolors > /dev/null; then
   test -r "$HOME/.nord-dircolors/src/dir_colors" && eval $(dircolors ~/.nord-dircolors/src/dir_colors)
