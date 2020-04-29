@@ -7,6 +7,7 @@
 	st = status
 	ca = commit -a
 	di = diff
+	dic = diff --cached
 	co = checkout
 	cm = commit
   sw = switch
