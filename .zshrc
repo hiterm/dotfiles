@@ -48,7 +48,7 @@ alias biber-uplatex="biber --bblencoding=utf8 -u -U --output_safechars"
 # kubectl
 alias k="kubectl"
 # ls
-alias ls="ls --color"
+alias ls="ls --color=auto"
 # exa
 alias le="exa"
 alias lef="exa -F"
