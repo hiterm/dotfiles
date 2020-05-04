@@ -80,6 +80,39 @@ bindkey -M vicmd "q" push-line
 # zshの入力モード切り替えの時間を短く
 KEYTIMEOUT=1
 
+#
+# zleiab
+#
+setopt extended_glob
+
+typeset -A abbreviations
+abbreviations=(
+  "Il"    "| less"
+  "Ia"    "| awk"
+  "Ig"    "| rg"
+  "Ih"    "| head"
+  "It"    "| tail"
+  "Is"    "| sort"
+  "Iw"    "| wc"
+  "Ix"    "| xargs"
+)
+
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle self-insert
+}
+
+no-magic-abbrev-expand() {
+  LBUFFER+=' '
+}
+
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+bindkey " " magic-abbrev-expand
+bindkey "^x " no-magic-abbrev-expand
+
 # 履歴
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
