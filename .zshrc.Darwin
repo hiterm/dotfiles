@@ -48,3 +48,6 @@ alias base64=gbase64
 alias dircolors=gdircolors
 alias grep=ggrep
 alias sed=gsed
+
+# starship prompt
+eval "$(starship init zsh)"

@@ -251,9 +251,6 @@ source ~/.zinit/bin/zinit.zsh
 zinit ice wait"0" blockf lucid
 zinit light zsh-users/zsh-completions
 
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-
 zinit ice wait"0" pick"plugins/git-auto-fetch/git-auto-fetch.plugin.zsh" lucid
 zinit light ohmyzsh/ohmyzsh
 
