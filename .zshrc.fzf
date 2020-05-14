@@ -55,7 +55,7 @@ function fsnip() {
 function fbr() {
     local branches branch
     branches=$(git branch | grep -v "^* " | sed "s/^  //") &&
-        branch=$(echo "$branches" | fzf +m --prompt="Branch> " --preview="git log {}") &&
+        branch=$(echo "$branches" | fzf +m --prompt="Branch> " --preview="git log --color=always {}") &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
