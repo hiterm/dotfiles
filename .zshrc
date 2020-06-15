@@ -256,10 +256,8 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-zinit ice wait"0" lucid
 zinit snippet OMZP::colored-man-pages
 
-zinit ice wait"0" lucid
 zinit snippet OMZP::git-auto-fetch
 
 zinit ice wait"0" blockf lucid
@@ -267,6 +265,9 @@ zinit light zsh-users/zsh-completions
 
 zinit ice wait"0" atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zinit light zdharma/fast-syntax-highlighting
+
+zinit ice wait"0" pick"git-escape-magic" lucid
+zinit light "knu/zsh-git-escape-magic"
 
 # rbenv
 path=($HOME/.rbenv/bin(N-/) $path)
