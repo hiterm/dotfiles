@@ -266,6 +266,9 @@ zinit light zsh-users/zsh-completions
 zinit ice wait"0" atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" atload"fast-theme -q q-jmnemonic" lucid
 zinit light zdharma/fast-syntax-highlighting
 
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+
 zinit ice wait"0" pick"git-escape-magic" lucid
 zinit light "knu/zsh-git-escape-magic"
 

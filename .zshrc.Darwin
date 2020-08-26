@@ -50,6 +50,3 @@ alias grep=ggrep
 alias sed=gsed
 alias date=gdate
 alias awk=gawk
-
-# starship prompt
-eval "$(starship init zsh)"
