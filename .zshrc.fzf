@@ -212,3 +212,10 @@ function fshow-preview() {
     --bind "enter:execute:$_viewGitLogLine   | less -R" \
     --bind "alt-y:execute:$_gitLogLineToHash | xclip"
   }
+
+function fssh() {
+  local host="$(cat ~/.ssh/known_hosts | awk '{split($1, s, ","); print s[1]}' | fzf)"
+  if [ -n "$host" ] ; then
+    print -z ssh "$host"
+  fi
+}
