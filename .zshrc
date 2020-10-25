@@ -263,7 +263,11 @@ zinit snippet OMZP::git-auto-fetch
 zinit ice wait"0" blockf lucid
 zinit light zsh-users/zsh-completions
 
-zinit ice wait"0" atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" atload"fast-theme -q q-jmnemonic" lucid
+zinit ice wait"0" \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+  atload"fast-theme -q q-jmnemonic" \
+  atload"noglob unset FAST_HIGHLIGHT[chroma-ruby]" \
+  lucid
 zinit light zdharma/fast-syntax-highlighting
 
 zinit ice depth=1
