@@ -256,6 +256,9 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
+# colored-man-pagesに必要
+autoload -Uz colors
+colors
 zinit snippet OMZP::colored-man-pages
 
 zinit snippet OMZP::git-auto-fetch
