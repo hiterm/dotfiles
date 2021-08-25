@@ -51,3 +51,4 @@ alias sed=gsed
 alias date=gdate
 alias awk=gawk
 alias cat=gcat
+alias cp=gcp
