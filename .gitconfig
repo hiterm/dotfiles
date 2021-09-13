@@ -23,6 +23,7 @@
 	diffFilter = diff-so-fancy --patch
 [diff]
 	algorithm = histogram
+	colorMoved = dimmed-zebra
 	tool = nvimdiff
 [merge]
 	tool = nvimdiff
