@@ -1,0 +1,12 @@
+modmap:
+  - name: Global
+    remap:
+      # Swap CapsLock, Ctrl_L
+      CapsLock: Ctrl_L
+      Ctrl_L: CapsLock
+
+keymap:
+  - name: Global
+    remap:
+      # Underscore without Shift
+      RO: Shift-RO
