@@ -20,6 +20,9 @@ export path=($HOME/.cargo/bin $path)
 export GOPATH=$HOME/go
 path=($GOPATH/bin $path)
 
+## Haskell
+path=($HOME/.cabal/bin $HOME/.ghcup/bin $path)
+
 # dircolors
 if type dircolors > /dev/null; then
   test -r "$HOME/.nord-dircolors/src/dir_colors" && eval $(dircolors ~/.nord-dircolors/src/dir_colors)
