@@ -16,14 +16,14 @@
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [include]
-    path = .gitconfig.os
+  path = .gitconfig.os
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
 [interactive]
-	diffFilter = diff-so-fancy --patch
+  diffFilter = delta --color-only
 [diff]
 	algorithm = histogram
-	colorMoved = dimmed-zebra
+  colorMoved = default
 	tool = nvimdiff
 [merge]
 	tool = nvimdiff
@@ -32,3 +32,8 @@
 	cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
 [mergetool "nvimdiff"]
 	cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
+[delta]
+  navigate = true
+  diff-so-fancy = true
+  line-numbers = true
+  side-by-side = true
