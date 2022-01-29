@@ -28,12 +28,8 @@
 [merge]
 	tool = nvimdiff
 	conflictstyle = diff3
-[difftool "nvimdiff"]
-	cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
-[mergetool "nvimdiff"]
-	cmd = "nvim -d -c \"4wincmd w | wincmd J\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"  \"$MERGED\""
 [delta]
   navigate = true
-  diff-so-fancy = true
+  syntax-theme = Nord
   line-numbers = true
   side-by-side = true
