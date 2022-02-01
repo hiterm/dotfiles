@@ -122,3 +122,6 @@ symbol = " "
 
 [swift]
 symbol = "ﯣ "
+
+[kubernetes]
+disabled = true

@@ -256,6 +256,8 @@ if type fzf > /dev/null; then
 else
   echo "Please install starship."
 fi
+alias skon="starship config kubernetes.disabled false"
+alias skoff="starship config kubernetes.disabled true"
 
 # colorized man pages
 if type bat > /dev/null; then
