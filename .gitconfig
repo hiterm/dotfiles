@@ -1,21 +1,21 @@
 [user]
-	name = htlsne
-	email = htlsne23@gmail.com
+  name = htlsne
+  email = htlsne23@gmail.com
 [push]
-	default = simple
+  default = simple
 [alias]
-	st = status
-	ca = commit -a
-	di = diff
-	dic = diff --cached
-	co = checkout
-	cm = commit
+  st = status
+  ca = commit -a
+  di = diff
+  dic = diff --cached
+  co = checkout
+  cm = commit
   sw = switch
   rs = restore
-	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
   uni = !git -c 'delta.features="base unified"'
 [url "git@github.com:"]
-	pushInsteadOf = https://github.com/
+  pushInsteadOf = https://github.com/
 [include]
   path = .gitconfig.os
 [core]
@@ -23,12 +23,12 @@
 [interactive]
   diffFilter = delta --color-only
 [diff]
-	algorithm = histogram
+  algorithm = histogram
   colorMoved = default
-	tool = nvimdiff
+  tool = nvimdiff
 [merge]
-	tool = nvimdiff
-	conflictstyle = diff3
+  tool = nvimdiff
+  conflictstyle = diff3
 [delta]
   features = base sbs
 [delta "base"]
@@ -37,6 +37,6 @@
   line-numbers = true
   side-by-side = true
 [delta "sbs"]
-	side-by-side	= true
+  side-by-side	= true
 [delta "unified"]
-	side-by-side	= false
+  side-by-side	= false
