@@ -13,6 +13,7 @@
   sw = switch
   rs = restore
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  uni = !git -c 'delta.features="base unified"'
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
 [include]
@@ -29,7 +30,13 @@
 	tool = nvimdiff
 	conflictstyle = diff3
 [delta]
+  features = base sbs
+[delta "base"]
   navigate = true
   syntax-theme = Nord
   line-numbers = true
   side-by-side = true
+[delta "sbs"]
+	side-by-side	= true
+[delta "unified"]
+	side-by-side	= false
