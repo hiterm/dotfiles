@@ -35,6 +35,8 @@ alias luajitlatex='luajittex --fmt=luajitlatex.fmt'
 # neovim as vim
 if type nvim > /dev/null; then
     alias vim=nvim
+else
+  echo "Please install Neovim."
 fi
 # neovim-remote
 alias nvim-server='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
@@ -178,6 +180,7 @@ ls_abbrev() {
       if type gls > /dev/null 2>&1; then
         cmd_ls='gls'
       else
+        echo "Please install coreutils."
         # -G : Enable colorized output.
         opt_ls=('-CFG')
       fi
@@ -251,14 +254,14 @@ function mkdircd() {
 if type fzf > /dev/null; then
   eval "$(starship init zsh)"
 else
-  echo "Please install starship"
+  echo "Please install starship."
 fi
 
 # colorized man pages
 if type bat > /dev/null; then
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 else
-  echo "Please install bat"
+  echo "Please install bat."
 fi
 
 # fpath
