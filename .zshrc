@@ -242,6 +242,25 @@ _zsh_cli_fg() { fg; }
 zle -N _zsh_cli_fg
 bindkey '^Z' _zsh_cli_fg
 
+# mkdir and cd
+function mkdircd() {
+  mkdir $1 && cd $_
+}
+
+# starship
+if type fzf > /dev/null; then
+  eval "$(starship init zsh)"
+else
+  echo "Please install starship"
+fi
+
+# colorized man pages
+if type bat > /dev/null; then
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+else
+  echo "Please install bat"
+fi
+
 # fpath
 fpath=($fpath $HOME/.zsh/completion(N-/))
 
@@ -259,9 +278,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-zinit ice atinit'autoload -Uz colors; colors'
-zinit snippet OMZP::colored-man-pages
-
 zinit snippet OMZP::git-auto-fetch
 
 zinit ice wait"0" blockf lucid
@@ -273,9 +289,6 @@ zinit ice wait"0" \
   atload"noglob unset FAST_HIGHLIGHT[chroma-ruby]" \
   lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
-
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
 
 zinit ice wait"0" pick"git-escape-magic" lucid
 zinit light "knu/zsh-git-escape-magic"
@@ -296,11 +309,3 @@ zinit light htlsne/zinit-rbenv
 if type fzf > /dev/null && [ -f $HOME/.zshrc.fzf ]; then
     source $HOME/.zshrc.fzf
 fi
-
-# mkdir and cd
-function mkdircd() {
-  mkdir $1 && cd $_
-}
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
