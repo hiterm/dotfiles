@@ -29,7 +29,7 @@ read_only = " "
 [git_branch]
 format = "[$symbol$branch]($style) "
 style = "green"
-symbol = " "
+symbol = ""
 
 [git_status]
 style = "yellow"
