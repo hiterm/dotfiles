@@ -22,12 +22,14 @@ $character
 symbol = " "
 
 [directory]
-style = "cyan"
+style = "blue"
 truncate_to_repo = false
+read_only = " "
 
 [git_branch]
 format = "[$symbol$branch]($style) "
 style = "green"
+symbol = " "
 
 [git_status]
 style = "yellow"
@@ -41,14 +43,82 @@ style = "cyan"
 format = " [$duration]($style)"
 style = "yellow"
 
-[java]
-format = "[${symbol}(${version} )]($style)"
-
 [kotlin]
-format = "[$symbol($version )]($style)"
+format = " [$symbol($version)]($style)"
 
 [nodejs]
 format = "[$symbol($version)]($style)"
+symbol = " "
 
 [lua]
-format = "[$symbol($version )]($style)"
+format = "[$symbol($version)]($style)"
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+format = "[${symbol}(${version})]($style)"
+symbol = " "
+
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+format = "[$symbol($version)]($style)"
+symbol = " "
+
+[rust]
+format = "[$symbol($version)]($style)"
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
