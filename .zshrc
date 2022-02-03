@@ -55,8 +55,8 @@ alias k="kubectl"
 # ls
 alias ls="ls --color=auto"
 # exa
-alias le="exa"
-alias lef="exa -F"
+alias le="exa --time-style=long-iso"
+alias lef="exa --time-style=long-iso -F"
 
 # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
