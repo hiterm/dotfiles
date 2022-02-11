@@ -23,6 +23,7 @@ symbol = " "
 
 [directory]
 style = "blue"
+truncation_length = 5
 truncate_to_repo = false
 read_only = " "
 
@@ -52,6 +53,7 @@ symbol = " "
 
 [lua]
 format = "[$symbol($version)]($style)"
+symbol = " "
 
 [aws]
 symbol = "  "
