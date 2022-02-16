@@ -283,8 +283,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-zinit snippet OMZP::git-auto-fetch
-
 zinit ice wait"0" blockf lucid
 zinit light zsh-users/zsh-completions
 
