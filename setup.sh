@@ -61,7 +61,7 @@ echo Linking .gitconfig.os
 ln -s $DOTFILES_DIR/.gitconfig.`uname` $HOME/.gitconfig.os
 
 # vim
-git clone https://github.com/htlsne/vimrc.git $HOME/.vim
+git clone https://github.com/hiterm/vimrc.git $HOME/.vim
 
 # neovim
 echo Linking $XDG_CONFIG_HOME/nvim
@@ -77,4 +77,4 @@ git clone https://github.com/tmux-plugins/tmux-yank.git $HOME/.tmux.d/tmux-yank
 git clone https://github.com/goronfreeman/nord-tmux.git $HOME/.tmux.d/nord-tmux
 
 # dircolors nord
-git clone https://github.com/htlsne/nord-dircolors.git $HOME/.nord-dircolors
+git clone https://github.com/hiterm/nord-dircolors.git $HOME/.nord-dircolors

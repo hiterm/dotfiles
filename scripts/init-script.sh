@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd $HOME
-git clone git@github.com:htlsne/dotfiles.git
+git clone git@github.com:hiterm/dotfiles.git
 ./dotfiles/setup.sh
 
 wget https://github.com/junegunn/fzf-bin/releases/download/0.18.0/fzf-0.18.0-linux_amd64.tgz
