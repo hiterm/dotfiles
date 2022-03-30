@@ -2,12 +2,12 @@ local wezterm = require("wezterm")
 
 return {
 	color_scheme = "nord",
-	unix_domains = {
-		{
-			name = "unix",
-		},
-	},
-	default_gui_startup_args = { "connect", "unix" },
+	-- unix_domains = {
+	-- 	{
+	-- 		name = "unix",
+	-- 	},
+	-- },
+	-- default_gui_startup_args = { "connect", "unix" },
 	font_size = 12.0,
 
 	disable_default_key_bindings = true,
@@ -50,7 +50,17 @@ return {
 		{ key = "s", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x13" }) },
 		{ key = " ", mods = "LEADER", action = "QuickSelect" },
 		{ key = "]", mods = "LEADER", action = "ActivateCopyMode" }, -- "[" in JIS
-		{ key = "2", mods = "LEADER|SHIFT", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) }, -- '"' in JIS
-		{ key = "5", mods = "LEADER|SHIFT", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) }, -- '"' in JIS
+		{
+			key = "2",
+			mods = "LEADER|SHIFT",
+			action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+		}, -- '"' in JIS
+		{
+			key = "5",
+			mods = "LEADER|SHIFT",
+			action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
+		}, -- '"' in JIS
+
+		{ key = "mapped:\\", action = wezterm.action({ SendString = "_" }) },
 	},
 }
