@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-key_table = {
+local key_table = {
 	{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "Tab", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
 	{ key = "Tab", mods = "CTRL|SHIFT", action = wezterm.action({ ActivateTabRelative = -1 }) },
@@ -29,7 +29,7 @@ key_table = {
 
 	{ key = "s", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x13" }) },
 	{ key = " ", mods = "LEADER", action = "QuickSelect" },
-	{ key = "mapped:[", mods = "LEADER", action = "ActivateCopyMode" }, -- "[" in JIS
+	{ key = "mapped:[", mods = "LEADER", action = "ActivateCopyMode" },
 	{
 		key = 'mapped:"',
 		mods = "LEADER|SHIFT",
@@ -54,7 +54,7 @@ if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 	table.insert(key_table, { key = "raw:97", action = wezterm.action({ SendString = "_" }) })
 end
 
-return {
+local settings = {
 	color_scheme = "nord",
 	unix_domains = {
 		{
@@ -62,9 +62,35 @@ return {
 		},
 	},
 	default_gui_startup_args = { "connect", "unix" },
-	font_size = 12.0,
+	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 
 	disable_default_key_bindings = true,
 	leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = key_table,
 }
+
+local mac_settings = {
+	font = wezterm.font_with_fallback({
+		"DejaVuSansMono Nerd Font",
+		"Hiragino Kaku Gothic ProN",
+	}),
+	font_size = 14.0
+}
+
+local linux_settings = {
+	font_size = 12.0,
+}
+
+if wezterm.target_triple == "x86_64-apple-darwin" then
+	for k, v in pairs(mac_settings) do
+		settings[k] = v
+	end
+end
+
+if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+	for k, v in pairs(linux_settings) do
+		settings[k] = v
+	end
+end
+
+return settings
