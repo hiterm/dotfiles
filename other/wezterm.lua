@@ -29,6 +29,7 @@ local key_table = {
 
 	{ key = "s", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x13" }) },
 	{ key = " ", mods = "LEADER", action = "QuickSelect" },
+	{ key = "c", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "mapped:[", mods = "LEADER", action = "ActivateCopyMode" },
 	{
 		key = 'mapped:"',
@@ -54,14 +55,18 @@ if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 	table.insert(key_table, { key = "raw:97", action = wezterm.action({ SendString = "_" }) })
 end
 
+if wezterm.target_triple == "x86_64-apple-darwin" then
+	local mac_key_table = {
+		{ key = "c", mods = "SUPER", action = wezterm.action({ CopyTo = "Clipboard" }) },
+		{ key = "v", mods = "SUPER", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+	}
+	for _, value in ipairs(mac_key_table) do
+		table.insert(key_table, value)
+	end
+end
+
 local settings = {
 	color_scheme = "nord",
-	unix_domains = {
-		{
-			name = "unix",
-		},
-	},
-	default_gui_startup_args = { "connect", "unix" },
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 
 	disable_default_key_bindings = true,
@@ -74,7 +79,7 @@ local mac_settings = {
 		"DejaVuSansMono Nerd Font",
 		"Hiragino Kaku Gothic ProN",
 	}),
-	font_size = 14.0
+	font_size = 14.0,
 }
 
 local linux_settings = {
