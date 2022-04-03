@@ -83,8 +83,9 @@ local mac_settings = {
 }
 
 local linux_settings = {
-	font = wezterm.font("PlemolJP Console"),
-	font_size = 12.0,
+	font = wezterm.font("PlemolJP Console", {weight = "Medium"}),
+	-- font = wezterm.font("UDEV Gothic"),
+	font_size = 13.0,
 }
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
