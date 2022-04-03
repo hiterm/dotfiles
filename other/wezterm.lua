@@ -83,6 +83,7 @@ local mac_settings = {
 }
 
 local linux_settings = {
+	font = wezterm.font("PlemolJP Console"),
 	font_size = 12.0,
 }
 
