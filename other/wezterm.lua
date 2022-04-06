@@ -41,11 +41,8 @@ local key_table = {
 		mods = "LEADER|SHIFT",
 		action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 	},
-	{
-		key = "mapped:&",
-		mods = "LEADER|SHIFT",
-		action = wezterm.action({ CloseCurrentTab = { confirm = true } }),
-	},
+	{ key = "mapped:&", mods = "LEADER|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
+	{ key = "mapped:/", mods = "LEADER", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
 	{ key = "l", mods = "LEADER", action = "ShowLauncher" },
 	{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 }
