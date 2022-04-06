@@ -69,6 +69,9 @@ local settings = {
 	disable_default_key_bindings = true,
 	leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = key_table,
+	quick_select_patterns = {
+		"\\S{5,}",
+	},
 }
 
 local mac_settings = {
