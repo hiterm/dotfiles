@@ -75,10 +75,7 @@ local settings = {
 }
 
 local mac_settings = {
-	font = wezterm.font_with_fallback({
-		"DejaVuSansMono Nerd Font",
-		"Hiragino Kaku Gothic ProN",
-	}),
+	font = wezterm.font("PlemolJP Console", { weight = "Medium" }),
 	font_size = 14.0,
 }
 
