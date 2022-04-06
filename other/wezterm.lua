@@ -82,6 +82,10 @@ local mac_settings = {
 local linux_settings = {
 	font = wezterm.font("PlemolJP Console", { weight = "Medium" }),
 	-- font = wezterm.font("UDEV Gothic"),
+	-- font = wezterm.font_with_fallback({
+	-- 	"MesloLGMDZ Nerd Font",
+	-- 	"PlemolJP Console",
+	-- }),
 	font_size = 13.0,
 }
 
