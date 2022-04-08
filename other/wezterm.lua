@@ -72,6 +72,13 @@ local settings = {
 	quick_select_patterns = {
 		"\\S{5,}",
 	},
+
+	launch_menu = {
+		{
+			label = "Config",
+			args = { "nvim", "~/.config/wezterm/wezterm.lua" },
+		},
+	},
 }
 
 local mac_settings = {
