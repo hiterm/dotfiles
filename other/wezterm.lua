@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 
+-- utils
+
 local function append_table(table, other)
 	for k, v in pairs(other) do
 		table[k] = v
@@ -11,6 +13,8 @@ local function append_array(array, other)
 		table.insert(array, value)
 	end
 end
+
+-- key bindings
 
 local key_table = {
 	{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
@@ -72,6 +76,54 @@ if wezterm.target_triple == "x86_64-apple-darwin" then
 	append_array(key_table, mac_key_table)
 end
 
+-- font
+
+local font_list = {
+	{
+		name = "PlemolJP",
+		setting = {
+			font = wezterm.font("PlemolJP Console", { weight = "Medium" }),
+		},
+	},
+	{
+		name = "UDEV Gothic",
+		setting = {
+			font = wezterm.font("UDEV Gothic"),
+		},
+	},
+	{
+		name = "Fira Code",
+		setting = {
+			font = wezterm.font_with_fallback({
+				"Fira Code Nerd Font",
+				"UDEV Gothic",
+			}),
+		},
+	},
+	{
+		name = "Hack",
+		setting = {
+			font = wezterm.font_with_fallback({
+				"Hack Nerd Font",
+				"UDEV Gothic",
+			}),
+		},
+	},
+	{
+		name = "Source Code Pro",
+		setting = {
+			font = wezterm.font_with_fallback({
+				"Sauce Code Pro Nerd Font",
+				"UDEV Gothic",
+			}),
+		},
+	},
+}
+local date = os.date("*t")["yday"]
+local today_font = font_list[date % #font_list]
+
+-- other settings
+
 local settings = {
 	color_scheme = "nord",
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
@@ -85,32 +137,19 @@ local settings = {
 
 	launch_menu = {
 		{
-			label = "Config",
+			label = "Font: " .. today_font["name"],
 			args = { "nvim", "~/.config/wezterm/wezterm.lua" },
 		},
 	},
 }
 
+append_table(settings, today_font["setting"])
+
 local mac_settings = {
-	font = wezterm.font("PlemolJP Console", { weight = "Medium" }),
 	font_size = 14.0,
 }
 
 local linux_settings = {
-	font = wezterm.font("PlemolJP Console", { weight = "Medium" }),
-	-- font = wezterm.font("UDEV Gothic"),
-	-- font = wezterm.font_with_fallback({
-	-- 	"Fira Code Nerd Font",
-	-- 	"UDEV Gothic",
-	-- }),
-	-- font = wezterm.font_with_fallback({
-	-- 	"Hack Nerd Font",
-	-- 	"UDEV Gothic",
-	-- }),
-	-- font = wezterm.font_with_fallback({
-	-- 	"Sauce Code Pro Nerd Font",
-	-- 	"UDEV Gothic",
-	-- }),
 	font_size = 13.0,
 }
 
