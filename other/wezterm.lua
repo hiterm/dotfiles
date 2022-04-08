@@ -1,5 +1,11 @@
 local wezterm = require("wezterm")
 
+local function append_table(table, other)
+	for k, v in pairs(other) do
+		table[k] = v
+	end
+end
+
 local key_table = {
 	{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "Tab", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
@@ -105,15 +111,11 @@ local linux_settings = {
 }
 
 if wezterm.target_triple == "x86_64-apple-darwin" then
-	for k, v in pairs(mac_settings) do
-		settings[k] = v
-	end
+	append_table(settings, mac_settings)
 end
 
 if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-	for k, v in pairs(linux_settings) do
-		settings[k] = v
-	end
+	append_table(settings, linux_settings)
 end
 
 return settings
