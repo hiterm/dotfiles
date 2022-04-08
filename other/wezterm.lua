@@ -6,6 +6,12 @@ local function append_table(table, other)
 	end
 end
 
+local function append_array(array, other)
+	for _, value in ipairs(other) do
+		table.insert(array, value)
+	end
+end
+
 local key_table = {
 	{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 	{ key = "Tab", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
@@ -63,9 +69,7 @@ if wezterm.target_triple == "x86_64-apple-darwin" then
 		{ key = "c", mods = "SUPER", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "v", mods = "SUPER", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 	}
-	for _, value in ipairs(mac_key_table) do
-		table.insert(key_table, value)
-	end
+	append_array(key_table, mac_key_table)
 end
 
 local settings = {
