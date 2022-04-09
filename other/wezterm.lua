@@ -23,6 +23,10 @@ local key_table = {
 	{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
 	{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
 
+	{ key = "mapped:+", mods = "CTRL|SHIFT", action = "IncreaseFontSize" },
+	{ key = "mapped:-", mods = "CTRL", action = "DecreaseFontSize" },
+	{ key = "0", mods = "CTRL", action = "ResetFontSize" },
+
 	{ key = "k", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
 	{ key = "j", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
 	{ key = "h", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
