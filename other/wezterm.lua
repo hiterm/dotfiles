@@ -124,7 +124,7 @@ local font_list = {
 	},
 }
 local date = os.date("*t")["yday"]
-local today_font = font_list[date % #font_list]
+local today_font = font_list[(date % #font_list) + 1]
 
 -- other settings
 
