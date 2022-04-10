@@ -240,6 +240,11 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 1000
 
+# Bash C-x C-e emulation
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # Ctrl-Zでfg
 _zsh_cli_fg() { fg; }
 zle -N _zsh_cli_fg
