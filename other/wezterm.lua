@@ -99,7 +99,7 @@ local font_list = {
 		name = "Fira Code",
 		setting = {
 			font = wezterm.font_with_fallback({
-				"Fira Code Nerd Font",
+				"FiraCode Nerd Font",
 				"UDEV Gothic",
 			}),
 		},
@@ -117,7 +117,7 @@ local font_list = {
 		name = "Source Code Pro",
 		setting = {
 			font = wezterm.font_with_fallback({
-				"Sauce Code Pro Nerd Font",
+				"SauceCodePro Nerd Font",
 				"UDEV Gothic",
 			}),
 		},
