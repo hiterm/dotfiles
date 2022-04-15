@@ -96,6 +96,12 @@ local font_list = {
 		},
 	},
 	{
+		name = "Source Han Code JP",
+		setting = {
+			font = wezterm.font("Source Han Code JP"),
+		},
+	},
+	{
 		name = "Fira Code",
 		setting = {
 			font = wezterm.font_with_fallback({
