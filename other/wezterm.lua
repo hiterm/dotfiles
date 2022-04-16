@@ -14,6 +14,9 @@ local function append_array(array, other)
 	end
 end
 
+local mac = wezterm.target_triple == "x86_64-apple-darwin"
+local linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
+
 -- key bindings
 
 local key_table = {
@@ -67,12 +70,12 @@ local key_table = {
 	{ key = "r", mods = "LEADER", action = "ReloadConfiguration" },
 }
 
-if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+if linux then
 	-- remap underscore key
 	table.insert(key_table, { key = "raw:97", action = wezterm.action({ SendString = "_" }) })
 end
 
-if wezterm.target_triple == "x86_64-apple-darwin" then
+if mac then
 	local mac_key_table = {
 		{ key = "c", mods = "SUPER", action = wezterm.action({ CopyTo = "Clipboard" }) },
 		{ key = "v", mods = "SUPER", action = wezterm.action({ PasteFrom = "Clipboard" }) },
@@ -181,11 +184,11 @@ local linux_settings = {
 	font_size = 13.0,
 }
 
-if wezterm.target_triple == "x86_64-apple-darwin" then
+if mac then
 	append_table(settings, mac_settings)
 end
 
-if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+if linux then
 	append_table(settings, linux_settings)
 end
 
