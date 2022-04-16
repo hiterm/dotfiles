@@ -108,6 +108,18 @@ local font_list = {
 		},
 	},
 	{
+		name = "HackGen",
+		setting = {
+			font = wezterm.font("HackGenNerd Console"),
+		},
+	},
+	{
+		name = "Cica",
+		setting = {
+			font = wezterm.font("Cica"),
+		},
+	},
+	{
 		name = "Fira Code",
 		setting = {
 			font = wezterm.font_with_fallback({
