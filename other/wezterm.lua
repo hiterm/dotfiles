@@ -102,6 +102,12 @@ local font_list = {
 		},
 	},
 	{
+		name = "Myrica M",
+		setting = {
+			font = wezterm.font("Myrica M"),
+		},
+	},
+	{
 		name = "Fira Code",
 		setting = {
 			font = wezterm.font_with_fallback({
