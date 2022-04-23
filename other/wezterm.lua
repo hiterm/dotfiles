@@ -105,12 +105,6 @@ local font_list = {
 		},
 	},
 	{
-		name = "Myrica M",
-		setting = {
-			font = wezterm.font("Myrica M"),
-		},
-	},
-	{
 		name = "HackGen",
 		setting = {
 			font = wezterm.font("HackGenNerd Console"),
