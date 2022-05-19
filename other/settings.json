@@ -20,6 +20,10 @@
       "commands": ["editor.action.quickfix"]
     },
     {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
       "before": ["<leader>", "u", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
