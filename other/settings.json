@@ -1,0 +1,46 @@
+{
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "haskell.serverExecutablePath": "${env:HOME}/.ghcup/bin/haskell-language-server-wrapper",
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "l", "="],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "l", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["<leader>", "l", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "l", "a"],
+      "commands": ["editor.action.quickfix"]
+    },
+    {
+      "before": ["<leader>", "u", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "u", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "u", "c"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<C-e>"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    }
+  ],
+  "vim.enableNeovim": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
