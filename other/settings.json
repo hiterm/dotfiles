@@ -17,7 +17,7 @@
     },
     {
       "before": ["<leader>", "l", "a"],
-      "commands": ["editor.action.quickfix"]
+      "commands": ["editor.action.quickFix"]
     },
     {
       "before": ["K"],
@@ -36,15 +36,26 @@
       "commands": ["workbench.action.showCommands"]
     },
     {
-      "before": ["<C-e>"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
+      "before": ["[", "b"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["]", "b"],
+      "commands": ["workbench.action.nextEditor"]
     }
   ],
   "vim.enableNeovim": true,
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "-c",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote {im}",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
